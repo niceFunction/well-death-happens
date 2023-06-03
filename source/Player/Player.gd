@@ -42,9 +42,9 @@ onready var wall_detector: WallDetector = $WallDetector
 onready var floor_detector: FloorDetector = $FloorDetector
 
 # 3 variables used for playing animations.
-onready var pivot: Node2D = $PlayerSkin
+onready var skin: Node2D = $PlayerSkin
 onready var animation_player: AnimationPlayer = $PlayerSkin/AnimationPlayer
-onready var start_scale: Vector2 = pivot.scale
+onready var start_scale: Vector2 = skin.scale
 
 # Used to get access to the velocity variable.
 onready var move: State = $StateMachine/Move
@@ -85,7 +85,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Flips the "PlayerSkin" (or rather the "Sprite") along the X axis.
 	if not is_zero_approx(move.velocity.x):
-		pivot.scale.x = sign(move.velocity.x) * start_scale.x
+		skin.scale.x = sign(move.velocity.x) * start_scale.x
 	
 	# Different conditions to play different animation depending on the condition.
 	if is_jumping and move.velocity.y <= 0.0:
