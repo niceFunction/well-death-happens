@@ -28,11 +28,6 @@ class_name Player
 #		Kill Character on contact
 #		If Player dies on an animated Spike, corpse becomes attached to Spike.
 #			Spike is extended but the Corpse overlaps on Spike
-#	Spawning
-#		Look into some neat effect when the character spawns in?
-#			Maybe like a "Poof" effect?
-#	CREATE
-#		Create a Spawn animation
 
 onready var state_machine: StateMachine = $StateMachine
 onready var collider: CollisionShape2D = $CollisionShape2D
