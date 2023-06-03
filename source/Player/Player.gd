@@ -78,7 +78,7 @@ func _physics_process(delta: float) -> void:
 	var is_running := is_on_floor() and not is_zero_approx(move.velocity.x)
 	#var has_landed = (code here when the character has landed on the floor).
 	#var is_idling = (code here when the character hasn't moved for a while).
-	var is_standing = is_on_floor() and move.velocity.x == 0.0
+	var is_standing = move.velocity.x == 0.0
 	# Flips the "PlayerSkin" (or rather the "Sprite") along the X axis.
 	if not is_zero_approx(move.velocity.x):
 		skin.scale.x = sign(move.velocity.x) * start_scale.x
