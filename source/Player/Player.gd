@@ -2,7 +2,7 @@ extends KinematicBody2D
 class_name Player
 
 # REMINDER
-# Check the "Spawn and Death" section in the "Code a Platform Game Character with Godot".
+# Check the "Death" section in the "Code a Platform Game Character with Godot".
 
 # SOUND FILE FORMATS
 # .ogg for music, .wav for SFX
@@ -43,7 +43,6 @@ onready var start_scale: Vector2 = skin.scale
 
 # Used to get access to the velocity variable.
 onready var move: State = $StateMachine/Move
-onready var spawn: State = $StateMachine/Spawn
 # A string that gets "filled" with the animation_player.current_animation.
 onready var current_animation: String = ""
 # If I want to use a landing animation.
@@ -79,19 +78,22 @@ func _physics_process(delta: float) -> void:
 	#var has_landed = (code here when the character has landed on the floor).
 	#var is_idling = (code here when the character hasn't moved for a while).
 	var is_standing = move.velocity.x == 0.0
-	# Flips the "PlayerSkin" (or rather the "Sprite") along the X axis.
+	# Checks if the current state is "Spawn".
+	var is_spawning = state_machine.state.name == "Spawn"
+	# Flips the "PlayerSkin" (or rather the "Sprite") along the X axis.	
 	if not is_zero_approx(move.velocity.x):
 		skin.scale.x = sign(move.velocity.x) * start_scale.x
 	
-	# Different conditions to play different animation depending on the condition.
-	if is_jumping and move.velocity.y <= 0.0:
-		animation_player.play("Jumping")
-	elif is_falling:
-		animation_player.play("Falling")
-	elif is_running:
-		animation_player.play("Walking")
-	elif is_on_floor():
-		animation_player.play("Standing")
+	if !is_spawning:
+		# Different conditions to play different animation depending on the condition.
+		if is_jumping and move.velocity.y <= 0.0:
+			animation_player.play("Jumping")
+		elif is_falling:
+			animation_player.play("Falling")
+		elif is_running:
+			animation_player.play("Walking")
+		elif is_on_floor():
+			animation_player.play("Standing")
 
 	# Display in text what the current animation is.
 	current_animation = animation_player.current_animation
