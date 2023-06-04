@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://assets/Sprites/SquareMan_Tileset.png" type="Texture" id=1]
+[ext_resource path="res://assets/Sprites/Player/SquareMan_Tileset.png" type="Texture" id=1]
 [ext_resource path="res://source/Player/PlayerSkin.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=8]

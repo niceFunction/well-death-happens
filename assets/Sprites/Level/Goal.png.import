@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WDH_LevelTiles.png-acc4e1e9cdbf84a5e8c46250a74e6852.stex"
+path="res://.import/Goal.png-2b33097400cac366607b28d127d14665.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/WDH_LevelTiles.png"
-dest_files=[ "res://.import/WDH_LevelTiles.png-acc4e1e9cdbf84a5e8c46250a74e6852.stex" ]
+source_file="res://assets/Sprites/Level/Goal.png"
+dest_files=[ "res://.import/Goal.png-2b33097400cac366607b28d127d14665.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WhiteBox.png-08c99579d016c0021ae10f085891d76b.stex"
+path="res://.import/WDH_Icon.png-d4c1ea3619e8464f38108d5d9d04ba60.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/WhiteBox.png"
-dest_files=[ "res://.import/WhiteBox.png-08c99579d016c0021ae10f085891d76b.stex" ]
+source_file="res://assets/Sprites/UI/WDH_Icon.png"
+dest_files=[ "res://.import/WDH_Icon.png-d4c1ea3619e8464f38108d5d9d04ba60.stex" ]
 
 [params]
 

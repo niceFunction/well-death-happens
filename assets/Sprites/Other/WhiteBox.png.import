@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Spawning.png-fe15b44b033a981fc6b77e9958c5ce51.stex"
+path="res://.import/WhiteBox.png-882099bf9b651212edf917bbac369806.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Spawning.png"
-dest_files=[ "res://.import/Spawning.png-fe15b44b033a981fc6b77e9958c5ce51.stex" ]
+source_file="res://assets/Sprites/Other/WhiteBox.png"
+dest_files=[ "res://.import/WhiteBox.png-882099bf9b651212edf917bbac369806.stex" ]
 
 [params]
 

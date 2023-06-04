@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SquareMan_Tileset.png-4b26a0820ba037a028adb2c8999f829c.stex"
+path="res://.import/SquareMan_Corpse.png-21fd98bed6597a758bb5c666a859963c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/SquareMan_Tileset.png"
-dest_files=[ "res://.import/SquareMan_Tileset.png-4b26a0820ba037a028adb2c8999f829c.stex" ]
+source_file="res://assets/Sprites/Player/SquareMan_Corpse.png"
+dest_files=[ "res://.import/SquareMan_Corpse.png-21fd98bed6597a758bb5c666a859963c.stex" ]
 
 [params]
 

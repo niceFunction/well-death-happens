@@ -58,7 +58,7 @@ _global_script_class_icons={
 
 config/name="Well Death Happens"
 run/main_scene="res://source/Levels/LevelTemplate.tscn"
-config/icon="res://assets/Sprites/WDH_Icon.png"
+config/icon="res://assets/Sprites/UI/WDH_Icon.png"
 
 [autoload]
 

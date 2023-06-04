@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Goal.png-547d35821b864fbe6fc15fd42d72b54c.stex"
+path="res://.import/SquareMan_Tileset.png-3199922096120ba20ba6231216a41c39.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Goal.png"
-dest_files=[ "res://.import/Goal.png-547d35821b864fbe6fc15fd42d72b54c.stex" ]
+source_file="res://assets/Sprites/Player/SquareMan_Tileset.png"
+dest_files=[ "res://.import/SquareMan_Tileset.png-3199922096120ba20ba6231216a41c39.stex" ]
 
 [params]
 
