@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/Sprites/Level/SmoothTilesSet.tres" type="TileSet" id=1]
 [ext_resource path="res://source/Player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://source/Flag/Flag.tscn" type="PackedScene" id=7]
 [ext_resource path="res://source/Levels/Corpse_Storage.gd" type="Script" id=8]
 [ext_resource path="res://source/Shader/CRT_Overlay.tscn" type="PackedScene" id=9]
+[ext_resource path="res://source/Spikes/V_Spike_Static.tscn" type="PackedScene" id=10]
+[ext_resource path="res://source/Spikes/H_Spike_Static.tscn" type="PackedScene" id=11]
 
 [node name="LevelTemplate" type="Node2D"]
 position = Vector2( 2, -4 )
@@ -86,6 +88,12 @@ position = Vector2( 1096, 608 )
 next_scene = ExtResource( 6 )
 
 [node name="Corpses" type="Node2D" parent="."]
+
+[node name="H_Spike_Static" parent="." instance=ExtResource( 11 )]
+position = Vector2( 984, 592 )
+
+[node name="V_Spike_Static" parent="." instance=ExtResource( 10 )]
+position = Vector2( 936, 560 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 959, 519 )
