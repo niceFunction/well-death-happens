@@ -10,7 +10,6 @@ func _on_PlayerSkin_animation_finished(anim_name: String) -> void:
 	_state_machine.transition_to("Move/Air") # Issues here maybe?
 
 func enter(message: Dictionary = {}) -> void:
-	print("Spawn/Enter")
 	owner.is_active = false
 	owner.position = _start_position
 	#if owner.camera_rig:
