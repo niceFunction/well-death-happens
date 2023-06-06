@@ -161,7 +161,7 @@ tracks/2/keys = {
 "values": [ true ]
 }
 
-[node name="H_Spike_Anim" type="StaticBody2D"]
+[node name="H_Spike_Anim" type="Area2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, -8 )
@@ -179,3 +179,4 @@ anims/STOP_REF = SubResource( 5 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 0, -10 )
 polygon = PoolVector2Array( -8, 6, 8, 6, 8, 10, -8, 10 )
+disabled = true
