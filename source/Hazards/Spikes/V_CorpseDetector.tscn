@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="V_CorpseDetector" type="Position2D"]
+
+[node name="Ray_Top" type="RayCast2D" parent="."]
+modulate = Color( 1, 0.513726, 0, 1 )
+position = Vector2( 0, -13 )
+cast_to = Vector2( 16, 0 )
+
+[node name="Ray_Bottom" type="RayCast2D" parent="."]
+modulate = Color( 1, 0.513726, 0, 1 )
+position = Vector2( 0, -3 )
+cast_to = Vector2( 16, 0 )
