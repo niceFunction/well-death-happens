@@ -106,7 +106,7 @@ func handle_death_in_air() -> void:
 func handle_death_on_floor() -> void:
 	corpse_spawner.spawn_corpse("floor")
 
-func _player_fell_into_pit(_body: Node) -> void:
+func _player_died(_body: Node) -> void:
 	state_machine.transition_to("Spawn")
 	move.velocity = Vector2.ZERO
 	# Here we could also possibly subtract "life" that's available to the player.
