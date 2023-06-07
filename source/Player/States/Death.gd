@@ -26,6 +26,7 @@ func handle_death_on_floor() -> void:
 func enter(message: Dictionary = {}) -> void:
 	#if owner.camera_rig:
 	#	owner.camera_rig.is_active = false # This is for a "Camera rig" that we might want to reset.
+	# "SKIN" WILL COMPLAIN, WHEN REPLACING "SPAWN" TO "DEATH" in "_spawn_player" in Player.gd
 	owner.skin("Death")
 	owner.skin.connect("animation_finished", self, "_on_Player_animation_finished")
 	
