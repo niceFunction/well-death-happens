@@ -37,4 +37,5 @@ func enter(message: Dictionary = {}) -> void:
 func exit() -> void:
 	#if owner.camera_rig:
 	#	owner.camera_rig.is_active = true # This is for a "Camera rig" that we want restored.
+	print("Player finished dying")
 	owner.skin.disconnect("animation_finished", self, "_on_Player_animation_finished")
