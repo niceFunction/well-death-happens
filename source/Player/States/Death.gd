@@ -23,17 +23,21 @@ func enter(message: Dictionary = {}) -> void:
 	#if owner.camera_rig:
 	#	owner.camera_rig.is_active = false # This is for a "Camera rig" that we might want to reset.
 	print("Player died")
+	owner.is_active = false
 	#owner.skin.play("Death") # Leaving this out for now.
+	owner.skin.play("Death")
 	owner.skin.connect("animation_finished", self, "_on_Player_animation_finished")
 	
 func exit() -> void:
 	#if owner.camera_rig:
 	#	owner.camera_rig.is_active = true # This is for a "Camera rig" that we want restored.
+	owner.is_active = true
 	owner.skin.disconnect("animation_finished", self, "_on_Player_animation_finished")
 
 # "States" used to check if the player has "died" in the "Air" or "Floor".
 func handle_death_in_air() -> void:
 	owner.corpse_spawner.spawn_corpse("air") # The Corpse spawner should probably be it's own thing.
+	#print("banana")
 
 func handle_death_on_floor() -> void:
 	owner.corpse_spawner.spawn_corpse("floor") # The Corpse spawner should probably be it's own thing.

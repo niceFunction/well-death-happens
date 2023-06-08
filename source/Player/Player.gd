@@ -79,7 +79,7 @@ func trigger_animation() -> void:
 	# Flips the "PlayerSkin" (or rather the "Sprite") along the X axis.	
 	if not is_zero_approx(move.velocity.x):
 		skin.scale.x = sign(move.velocity.x) * start_scale.x
-	
+
 	if !is_spawning:
 		# Different conditions to play different animation depending on the condition.
 		if is_jumping and move.velocity.y <= 0.0:

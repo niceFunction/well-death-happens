@@ -1,7 +1,6 @@
 extends Node2D
 
 # This script should be applied to EVERY level that needs it.
-onready var corpse_spawner := $Corpse_Spawner 
 onready var corpses_parent := $Corpses
 onready var player := $Player
 
