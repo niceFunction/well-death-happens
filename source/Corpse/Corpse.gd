@@ -28,5 +28,5 @@ func swap_to_static_body() -> void:
 	static_body_2d.name = "StaticCorpse"
 	static_body_2d.global_position = position
 	replace_by(static_body_2d)
-	
+
 	queue_free()

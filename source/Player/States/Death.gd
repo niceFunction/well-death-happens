@@ -18,14 +18,6 @@ func physics_process(delta: float) -> void:
 	else:
 		handle_death_on_floor()
 
-# "States" used to check if the player has "died" in the "Air" or "Floor".
-func handle_death_in_air() -> void:
-	owner.corpse_spawner.spawn_corpse("air") # The Corpse spawner should probably be it's own thing.
-
-func handle_death_on_floor() -> void:
-	owner.corpse_spawner.spawn_corpse("floor") # The Corpse spawner should probably be it's own thing.
-	# Meaning, that we maybe don't want getting hold of the Player/Corpse_Spawner
-	
 # These happens twice, why?
 func enter(message: Dictionary = {}) -> void:
 	#if owner.camera_rig:
@@ -38,3 +30,11 @@ func exit() -> void:
 	#if owner.camera_rig:
 	#	owner.camera_rig.is_active = true # This is for a "Camera rig" that we want restored.
 	owner.skin.disconnect("animation_finished", self, "_on_Player_animation_finished")
+
+# "States" used to check if the player has "died" in the "Air" or "Floor".
+func handle_death_in_air() -> void:
+	owner.corpse_spawner.spawn_corpse("air") # The Corpse spawner should probably be it's own thing.
+
+func handle_death_on_floor() -> void:
+	owner.corpse_spawner.spawn_corpse("floor") # The Corpse spawner should probably be it's own thing.
+	# Meaning, that we maybe don't want getting hold of the Player/Corpse_Spawner

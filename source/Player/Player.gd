@@ -63,15 +63,11 @@ func set_is_active(value: bool) -> void:
 
 # This function is strictly used for animations (for now).
 func _physics_process(delta: float) -> void:
-	
-	# This should probably be put in a "Death" state script
-#	if Input.is_action_just_pressed("spawn_corpse"):
-#		if not is_on_floor():
-#			handle_death_in_air()
-#		else:
-#			handle_death_on_floor()
-	
-	# Variables to check when different things are happening.
+		
+	trigger_animation()
+
+# Function that uses condition(s) to trigger different animations.
+func trigger_animation() -> void:
 	var is_falling = move.velocity.y >= 0.0 and not is_on_floor()
 	var is_jumping = Input.is_action_just_pressed("Jump") and is_on_floor() and move.velocity.y <= 0.00
 	var is_running := is_on_floor() and not is_zero_approx(move.velocity.x)
@@ -97,15 +93,7 @@ func _physics_process(delta: float) -> void:
 
 	# Display in text what the current animation is.
 	current_animation = animation_player.current_animation
-
-# "States" used to check if the player has "died" in the "air" or "Floor".
-# Probably needs to be moved somewhere else, maybe.
-#func handle_death_in_air() -> void:
-#	corpse_spawner.spawn_corpse("air")
-
-#func handle_death_on_floor() -> void:
-#	corpse_spawner.spawn_corpse("floor")
-
+	
 # When the Player falls into a pit, just respawn the Player, don't create a Corpse.
 func _fell_into_pit(_body: Node) -> void:
 	state_machine.transition_to("Spawn")
@@ -113,8 +101,9 @@ func _fell_into_pit(_body: Node) -> void:
 	# Here we could also possibly subtract "life" that's available to the player.
 
 # When the Player has died to a Static Spike, respawn the Player, and create a Corpse.
+# Could probably become more generic
+# Why is this triggering TWICE & the player isn't really colliding with a Spike yet?
 func _died_to_spike(_body: Node) -> void:
 	state_machine.transition_to("Death")
-	#state_machine.transition_to("Spawn")
 	move.velocity = Vector2.ZERO
 	# Here we could also possibly subtract "life" that's available to the player.
