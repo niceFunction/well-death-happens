@@ -8,7 +8,7 @@ func _ready() -> void:
 	#_start_position = owner.position
 
 func _on_Player_animation_finished(anim_name: String) -> void:
-	_state_machine.transition_to("Death")
+	_state_machine.transition_to("Spawn")
 
 func physics_process(delta: float) -> void:
 # We probably want to create the Corpses from here?
@@ -31,6 +31,7 @@ func enter(message: Dictionary = {}) -> void:
 	#if owner.camera_rig:
 	#	owner.camera_rig.is_active = false # This is for a "Camera rig" that we might want to reset.
 	owner.skin.play("Death")
+	print("Player died")
 	owner.skin.connect("animation_finished", self, "_on_Player_animation_finished")
 	
 func exit() -> void:
