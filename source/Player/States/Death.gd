@@ -7,6 +7,7 @@ func _ready() -> void:
 	yield(owner, "ready")
 	#_start_position = owner.position
 
+# This function happens once
 func _on_Player_animation_finished(anim_name: String) -> void:
 	_state_machine.transition_to("Spawn")
 
@@ -27,11 +28,12 @@ func handle_death_in_air() -> void:
 func handle_death_on_floor() -> void:
 	corpse_spawner.spawn_corpse("floor")
 
+# These happens twice, why?
 func enter(message: Dictionary = {}) -> void:
 	#if owner.camera_rig:
 	#	owner.camera_rig.is_active = false # This is for a "Camera rig" that we might want to reset.
-	owner.skin.play("Death")
 	print("Player died")
+	owner.skin.play("Death")
 	owner.skin.connect("animation_finished", self, "_on_Player_animation_finished")
 	
 func exit() -> void:

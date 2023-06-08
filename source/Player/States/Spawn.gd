@@ -7,7 +7,7 @@ func _ready() -> void:
 	_start_position = owner.position
 
 func _on_PlayerSkin_animation_finished(anim_name: String) -> void:
-	_state_machine.transition_to("Move/Air") # Issues here maybe?
+	_state_machine.transition_to("Move/Air")
 
 func enter(message: Dictionary = {}) -> void:
 	owner.is_active = false
