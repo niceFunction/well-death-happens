@@ -3,6 +3,10 @@ extends State
 # We probably want to trigger "Corpses" from here
 onready var corpse_spawner := $Corpse_Spawner 
 
+func _ready() -> void:
+	yield(owner, "ready")
+	#_start_position = owner.position
+
 func _on_Player_animation_finished(anim_name: String) -> void:
 	_state_machine.transition_to("Death")
 
@@ -26,8 +30,7 @@ func handle_death_on_floor() -> void:
 func enter(message: Dictionary = {}) -> void:
 	#if owner.camera_rig:
 	#	owner.camera_rig.is_active = false # This is for a "Camera rig" that we might want to reset.
-	# "SKIN" WILL COMPLAIN, WHEN REPLACING "SPAWN" TO "DEATH" in "_spawn_player" in Player.gd
-	owner.skin("Death")
+	owner.skin.play("Death")
 	owner.skin.connect("animation_finished", self, "_on_Player_animation_finished")
 	
 func exit() -> void:

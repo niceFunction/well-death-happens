@@ -107,14 +107,14 @@ func handle_death_on_floor() -> void:
 	corpse_spawner.spawn_corpse("floor")
 
 # When the Player falls into a pit, just respawn the Player, don't create a Corpse.
-func _player_fell_into_pit(_body: Node) -> void:
+func _fell_into_pit(_body: Node) -> void:
 	state_machine.transition_to("Spawn")
 	move.velocity = Vector2.ZERO
 	# Here we could also possibly subtract "life" that's available to the player.
 
 # When the Player has died to a Static Spike, respawn the Player, and create a Corpse.
-func _player_died(_body: Node) -> void:
-	state_machine.transition_to("Spawn")
+func _died_to_spike(_body: Node) -> void:
+	state_machine.transition_to("Death")
+	#state_machine.transition_to("Spawn")
 	move.velocity = Vector2.ZERO
 	# Here we could also possibly subtract "life" that's available to the player.
-
