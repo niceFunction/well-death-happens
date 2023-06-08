@@ -65,11 +65,11 @@ func set_is_active(value: bool) -> void:
 func _physics_process(delta: float) -> void:
 	
 	# This should probably be put in a "Death" state script
-	if Input.is_action_just_pressed("spawn_corpse"):
-		if not is_on_floor():
-			handle_death_in_air()
-		else:
-			handle_death_on_floor()
+#	if Input.is_action_just_pressed("spawn_corpse"):
+#		if not is_on_floor():
+#			handle_death_in_air()
+#		else:
+#			handle_death_on_floor()
 	
 	# Variables to check when different things are happening.
 	var is_falling = move.velocity.y >= 0.0 and not is_on_floor()
@@ -100,11 +100,11 @@ func _physics_process(delta: float) -> void:
 
 # "States" used to check if the player has "died" in the "air" or "Floor".
 # Probably needs to be moved somewhere else, maybe.
-func handle_death_in_air() -> void:
-	corpse_spawner.spawn_corpse("air")
+#func handle_death_in_air() -> void:
+#	corpse_spawner.spawn_corpse("air")
 
-func handle_death_on_floor() -> void:
-	corpse_spawner.spawn_corpse("floor")
+#func handle_death_on_floor() -> void:
+#	corpse_spawner.spawn_corpse("floor")
 
 # When the Player falls into a pit, just respawn the Player, don't create a Corpse.
 func _fell_into_pit(_body: Node) -> void:

@@ -10,7 +10,7 @@
 [ext_resource path="res://source/Player/WallDetector.tscn" type="PackedScene" id=8]
 [ext_resource path="res://source/Player/States/Wall.gd" type="Script" id=9]
 [ext_resource path="res://source/Player/FloorDetector.tscn" type="PackedScene" id=10]
-[ext_resource path="res://source/Corpse/Corpse_Spawner.gd" type="Script" id=11]
+[ext_resource path="res://source/Corpse/Corpse_Spawner.tscn" type="PackedScene" id=11]
 [ext_resource path="res://source/Player/States/Spawn.gd" type="Script" id=12]
 [ext_resource path="res://source/Player/States/Death.gd" type="Script" id=13]
 
@@ -60,5 +60,4 @@ one_shot = true
 [node name="Death" type="Node" parent="StateMachine"]
 script = ExtResource( 13 )
 
-[node name="Corpse_Spawner" type="Node2D" parent="."]
-script = ExtResource( 11 )
+[node name="Corpse_Spawner" parent="." instance=ExtResource( 11 )]

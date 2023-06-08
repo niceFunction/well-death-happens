@@ -5,7 +5,6 @@ onready var corpse_spawner := $Corpse_Spawner
 
 func _ready() -> void:
 	yield(owner, "ready")
-	#_start_position = owner.position
 
 # This function happens once
 func _on_Player_animation_finished(anim_name: String) -> void:
@@ -14,30 +13,28 @@ func _on_Player_animation_finished(anim_name: String) -> void:
 func physics_process(delta: float) -> void:
 # We probably want to create the Corpses from here?
 #From here we probably want some if-statement or check to see what or how the Player died.
-#	if not is_on_floor():
-#		handle_death_in_air()
-#	else:
-#		handle_death_on_floor()
-	return
+	if not owner.is_on_floor():
+		handle_death_in_air()
+	else:
+		handle_death_on_floor()
 
-# "States" used to check if the player has "died" in the "air" or "Floor".
-# Probably needs to be moved somewhere else, maybe.
+# "States" used to check if the player has "died" in the "Air" or "Floor".
 func handle_death_in_air() -> void:
-	corpse_spawner.spawn_corpse("air")
+	owner.corpse_spawner.spawn_corpse("air") # The Corpse spawner should probably be it's own thing.
 
 func handle_death_on_floor() -> void:
-	corpse_spawner.spawn_corpse("floor")
-
+	owner.corpse_spawner.spawn_corpse("floor") # The Corpse spawner should probably be it's own thing.
+	# Meaning, that we maybe don't want getting hold of the Player/Corpse_Spawner
+	
 # These happens twice, why?
 func enter(message: Dictionary = {}) -> void:
 	#if owner.camera_rig:
 	#	owner.camera_rig.is_active = false # This is for a "Camera rig" that we might want to reset.
 	print("Player died")
-	owner.skin.play("Death")
+	#owner.skin.play("Death") # Leaving this out for now.
 	owner.skin.connect("animation_finished", self, "_on_Player_animation_finished")
 	
 func exit() -> void:
 	#if owner.camera_rig:
 	#	owner.camera_rig.is_active = true # This is for a "Camera rig" that we want restored.
-	print("Player finished dying")
 	owner.skin.disconnect("animation_finished", self, "_on_Player_animation_finished")
