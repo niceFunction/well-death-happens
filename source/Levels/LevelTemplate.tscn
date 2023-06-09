@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/Sprites/Level/SmoothTilesSet.tres" type="TileSet" id=1]
 [ext_resource path="res://source/Player/Player.tscn" type="PackedScene" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://source/Levels/Corpse_Storage.gd" type="Script" id=8]
 [ext_resource path="res://source/Shader/CRT_Overlay.tscn" type="PackedScene" id=9]
 [ext_resource path="res://source/Hazards/Spikes/H_Spike_Static.tscn" type="PackedScene" id=10]
-[ext_resource path="res://source/UI/Life/LifeUI_2.tscn" type="PackedScene" id=11]
 
 [node name="LevelTemplate" type="Node2D"]
 position = Vector2( 2, -4 )
@@ -65,8 +64,6 @@ margin_right = 408.0
 margin_bottom = 468.0
 reference_path = NodePath("../../../../Player")
 properties = PoolStringArray( "current_animation" )
-
-[node name="LifeUI_2" parent="UI" instance=ExtResource( 11 )]
 
 [node name="H_Spike_Static" parent="." instance=ExtResource( 10 )]
 position = Vector2( 968, 608 )
