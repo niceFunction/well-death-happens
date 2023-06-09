@@ -44,12 +44,12 @@ margin_bottom = 79.0
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -14.0
+margin_bottom = -15.0
 
 [node name="BoxContainer" type="HBoxContainer" parent="CenterContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 129.0
-margin_bottom = 71.0
+margin_right = 122.0
+margin_bottom = 64.0
 
 [node name="LifeIcon" type="TextureRect" parent="CenterContainer/BoxContainer"]
 margin_right = 64.0
