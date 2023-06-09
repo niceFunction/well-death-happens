@@ -6,7 +6,7 @@ class_name Player
 
 # SOUND FILE FORMATS
 # .ogg for music, .wav for SFX
-
+#
 # NOTES #
 # TWEAK THE FOLLOWING: 
 #	Gravity (Move (Y value in "acceleration_default"))
