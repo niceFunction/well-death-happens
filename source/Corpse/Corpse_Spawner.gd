@@ -14,6 +14,7 @@ func _ready() -> void:
 
 func spawn_corpse(state: String) -> void:
 	var created_corpse := corpse_packed_scene.instance()
+	
 	created_corpse.corpses_parent = corpses_parent
 	
 	# What should the Created Corpse do when it's either in the Air or Floor?

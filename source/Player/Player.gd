@@ -31,6 +31,8 @@ class_name Player
 #		If Player dies on an animated Spike, corpse becomes attached to Spike.
 #			Spike is extended but the Corpse overlaps on Spike
 
+signal trigger_a_corpse(new_corpse)
+
 onready var state_machine: StateMachine = $StateMachine
 onready var collider: CollisionShape2D = $CollisionShape2D
 
@@ -53,6 +55,7 @@ onready var current_animation: String = ""
 
 # Triggering the Corpses to spawn should probably be moved to a Death state or something.
 onready var corpse_spawner := $Corpse_Spawner 
+onready var just_died := false
 
 const FLOOR_NORMAL: = Vector2.UP
 var is_active: = true setget set_is_active
@@ -61,11 +64,10 @@ func set_is_active(value: bool) -> void:
 	is_active = value
 	if not collider:
 		return
-	collider.disabled = not value
+	collider.set_deferred("disabled", not value)
 
 # This function is strictly used for animations (for now).
 func _physics_process(delta: float) -> void:
-		
 	trigger_animation()
 
 # Function that uses condition(s) to trigger different animations.
@@ -96,16 +98,30 @@ func trigger_animation() -> void:
 	# Display in text what the current animation is.
 	current_animation = animation_player.current_animation
 	
-# When the Player falls into a pit, just respawn the Player, don't create a Corpse.
+# Respawn the Player, DON'T create a "Corpse".
 func _fell_into_pit(_body: Node) -> void:
 	state_machine.transition_to("Spawn")
 	move.velocity = Vector2.ZERO
-	# Here we could also possibly subtract "life" that's available to the player.
+	#Subtract "life" that's available to the player.
 
-# When the Player has died to a Static Spike, respawn the Player, and create a Corpse.
-# Could probably become more generic
-# Why is this triggering TWICE & the player isn't really colliding with a Spike yet?
-func _died_to_spike(_body: Node) -> void:
+# Create a "Corpse" on Death.
+func _has_died(_body: Node) -> void:
 	state_machine.transition_to("Death")
 	move.velocity = Vector2.ZERO
-	# Here we could also possibly subtract "life" that's available to the player.
+	emit_signal("trigger_a_corpse", just_died)
+	print(just_died)
+
+	# Subtract "life" that's available to the player.
+func corpse_creation() -> void:
+	if emit_signal("trigger_a_corpse", just_died):
+		if not is_on_floor():
+			handle_death_in_air() # This is called every frame as long as the player is in the "air".
+		else:
+			handle_death_on_floor()
+
+# "States" used to check if the player has "died" in the "Air" or "Floor".
+func handle_death_in_air() -> void:
+	corpse_spawner.spawn_corpse("air")
+
+func handle_death_on_floor() -> void:
+	corpse_spawner.spawn_corpse("floor")

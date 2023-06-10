@@ -61,3 +61,5 @@ one_shot = true
 script = ExtResource( 13 )
 
 [node name="Corpse_Spawner" parent="." instance=ExtResource( 11 )]
+
+[connection signal="trigger_a_corpse" from="." to="StateMachine/Death" method="_on_Player_trigger_a_corpse"]
