@@ -31,7 +31,7 @@ func exit() -> void:
 
 func corpse_creation() -> void:
 	if not owner.is_on_floor():
-		handle_death_in_air() # This is called every frame as long as the player is in the "air".
+		handle_death_in_air()
 	else:
 		handle_death_on_floor()
 

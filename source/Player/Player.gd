@@ -108,16 +108,15 @@ func _fell_into_pit(_body: Node) -> void:
 func _has_died(_body: Node) -> void:
 	state_machine.transition_to("Death")
 	move.velocity = Vector2.ZERO
-	emit_signal("trigger_a_corpse", just_died)
-	print(just_died)
+	emit_signal("trigger_a_corpse", corpse_creation())
+	#print(just_died)
 
 	# Subtract "life" that's available to the player.
 func corpse_creation() -> void:
-	if emit_signal("trigger_a_corpse", just_died):
-		if not is_on_floor():
-			handle_death_in_air() # This is called every frame as long as the player is in the "air".
-		else:
-			handle_death_on_floor()
+	if not is_on_floor():
+		handle_death_in_air() # This is called every frame as long as the player is in the "air".
+	else:
+		handle_death_on_floor()
 
 # "States" used to check if the player has "died" in the "Air" or "Floor".
 func handle_death_in_air() -> void:
