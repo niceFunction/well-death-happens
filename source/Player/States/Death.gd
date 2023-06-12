@@ -19,6 +19,7 @@ func physics_process(delta: float) -> void:
 func enter(message: Dictionary = {}) -> void:
 	#if owner.camera_rig:
 	#	owner.camera_rig.is_active = false # This is for a "Camera rig" that we might want to reset.
+	_on_Player_trigger_a_corpse(print(owner.just_died))
 	owner.is_active = false
 	owner.skin.play("Death")
 	owner.skin.connect("animation_finished", self, "_on_Player_animation_finished")
@@ -43,6 +44,9 @@ func handle_death_on_floor() -> void:
 	owner.corpse_spawner.spawn_corpse("floor")
 
 func _on_Player_trigger_a_corpse(new_corpse) -> void:
-	owner.just_died = true
+	#if !owner.just_died:
 #	if owner.emit_signal("trigger_a_corpse", owner.just_died):
 #		owner.just_died = true
+	if owner.just_died:
+		corpse_creation()
+

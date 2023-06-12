@@ -108,7 +108,6 @@ func _fell_into_pit(_body: Node) -> void:
 func _has_died(_body: Node) -> void:
 	state_machine.transition_to("Death")
 	move.velocity = Vector2.ZERO
-	#emit_signal("trigger_a_corpse", corpse_creation())
 	#print(just_died)
 
 	# Subtract "life" that's available to the player.
