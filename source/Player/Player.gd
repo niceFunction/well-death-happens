@@ -80,7 +80,7 @@ func trigger_animation() -> void:
 	var is_standing = move.velocity.x == 0.0
 	# Checks if the current state is "Spawn".
 	var is_spawning = state_machine.state.name == "Spawn"
-	# Flips the "PlayerSkin" (or rather the "Sprite") along the X axis.	
+	# Flips the "Player skin" (or rather the "Sprite") along the X axis.	
 	if not is_zero_approx(move.velocity.x):
 		skin.scale.x = sign(move.velocity.x) * start_scale.x
 
@@ -108,7 +108,6 @@ func _fell_into_pit(_body: Node) -> void:
 func _has_died(_body: Node) -> void:
 	state_machine.transition_to("Death")
 	move.velocity = Vector2.ZERO
-	#print(just_died)
 
 	# Subtract "life" that's available to the player.
 func corpse_creation() -> void:

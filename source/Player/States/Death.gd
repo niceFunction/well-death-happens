@@ -32,7 +32,7 @@ func exit() -> void:
 
 func corpse_creation() -> void:
 	if not owner.is_on_floor():
-		if owner.state_machine.state.name == "Spawn":
+		if owner.state_machine.state.name == "Death":
 			handle_death_in_air()
 	else:
 		handle_death_on_floor()
