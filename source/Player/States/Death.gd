@@ -32,10 +32,12 @@ func exit() -> void:
 
 func corpse_creation() -> void:
 	if not owner.is_on_floor():
-		if owner.state_machine.state.name == "Death":
+		if owner.state_machine.state.name == "Spawn":
 			handle_death_in_air()
 	else:
 		handle_death_on_floor()
+	#if owner.move.velocity.y <= 0.0:
+	#owner.state_machine.state.name == "Spawn": 
 
 # "States" used to check if the player has "died" in the "Air" or "Floor".
 func handle_death_in_air() -> void:

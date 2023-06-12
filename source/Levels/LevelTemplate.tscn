@@ -86,6 +86,7 @@ slide_acceleration = 1000.0
 max_slide_speed = 100.0
 
 [node name="Flag" parent="." instance=ExtResource( 7 )]
+visible = false
 position = Vector2( 1096, 608 )
 next_scene = ExtResource( 6 )
 
