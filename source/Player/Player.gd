@@ -106,20 +106,8 @@ func _fell_into_pit(_body: Node) -> void:
 
 # Create a "Corpse" on Death.
 func _has_died(_body: Node) -> void:
-	state_machine.transition_to("Death")
-	move.velocity = Vector2.ZERO
-
+	var is_spawning_here_man := state_machine.state.name == "Spawn"
+	if !is_spawning_here_man:
+		state_machine.transition_to("Death")
+		move.velocity = Vector2.ZERO
 	# Subtract "life" that's available to the player.
-func corpse_creation() -> void:
-	#if !just_died:
-	if not is_on_floor():
-		handle_death_in_air() # This is called every frame as long as the player is in the "air".
-	else:
-		handle_death_on_floor()
-
-# "States" used to check if the player has "died" in the "Air" or "Floor".
-func handle_death_in_air() -> void:
-	corpse_spawner.spawn_corpse("air")
-
-func handle_death_on_floor() -> void:
-	corpse_spawner.spawn_corpse("floor")

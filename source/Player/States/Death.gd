@@ -1,5 +1,7 @@
 extends State
 
+var can_spawn_corpses := false
+
 func _ready() -> void:
 	yield(owner, "ready")
 
@@ -7,12 +9,6 @@ func _on_Player_animation_finished(anim_name: String) -> void:
 	_state_machine.transition_to("Spawn")
 
 func physics_process(delta: float) -> void:
-# We probably want to create the Corpses from here?
-#From here we probably want some if-statement or check to see what or how the Player died.
-#	if not owner.is_on_floor():
-#		handle_death_in_air() # This is called every frame as long as the player is in the "air".
-#	else:
-#		handle_death_on_floor()
 	return
 
 # These happens twice, why?
@@ -27,17 +23,15 @@ func exit() -> void:
 	#if owner.camera_rig:
 	#	owner.camera_rig.is_active = true # This is for a "Camera rig" that we want restored.
 	corpse_creation()
+
 	owner.is_active = true
 	owner.skin.disconnect("animation_finished", self, "_on_Player_animation_finished")
 
 func corpse_creation() -> void:
 	if not owner.is_on_floor():
-		if owner.state_machine.state.name == "Spawn":
-			handle_death_in_air()
+		handle_death_in_air()
 	else:
 		handle_death_on_floor()
-	#if owner.move.velocity.y <= 0.0:
-	#owner.state_machine.state.name == "Spawn": 
 
 # "States" used to check if the player has "died" in the "Air" or "Floor".
 func handle_death_in_air() -> void:
@@ -45,11 +39,3 @@ func handle_death_in_air() -> void:
 
 func handle_death_on_floor() -> void:
 	owner.corpse_spawner.spawn_corpse("floor")
-
-func _on_Player_trigger_a_corpse(new_corpse) -> void:
-	#if !owner.just_died:
-#	if owner.emit_signal("trigger_a_corpse", owner.just_died):
-#		owner.just_died = true
-	#if owner.just_died:
-		#corpse_creation()
-	print("bananas")

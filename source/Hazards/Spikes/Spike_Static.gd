@@ -7,4 +7,4 @@ func _ready() -> void:
 
 func _on_player_body_entered(body: Node) -> void:
 	print("Split")
-	pass
+	#player.call_deferred("handle_death_on_floor")
