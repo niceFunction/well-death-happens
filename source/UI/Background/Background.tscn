@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/Sprites/Level/WDH_Background_Tile32.png" type="Texture" id=1]
+
+[node name="Background_Texture" type="TextureRect"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 1 )
+stretch_mode = 2

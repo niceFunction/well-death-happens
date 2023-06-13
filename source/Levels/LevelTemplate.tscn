@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/Sprites/Level/WDH_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://source/Player/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://source/Shader/CRT_Overlay.tscn" type="PackedScene" id=9]
 [ext_resource path="res://source/Hazards/Spikes/H_Spike_Static.tscn" type="PackedScene" id=10]
 [ext_resource path="res://source/Hazards/Spikes/V_Spike_Static.tscn" type="PackedScene" id=11]
+[ext_resource path="res://source/UI/Background/Background.tscn" type="PackedScene" id=12]
 
 [node name="LevelTemplate" type="Node2D"]
 position = Vector2( 2, -4 )
@@ -26,8 +27,15 @@ anchor_bottom = 1.0
 texture = ExtResource( 5 )
 stretch_mode = 2
 
+[node name="Background_Texture" parent="." instance=ExtResource( 12 )]
+margin_left = 345.0
+margin_top = 174.0
+margin_right = 1625.0
+margin_bottom = 894.0
+
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="DebugDock" type="MarginContainer" parent="UI"]
 anchor_bottom = 1.0
@@ -92,8 +100,7 @@ slide_acceleration = 1000.0
 max_slide_speed = 100.0
 
 [node name="Flag" parent="." instance=ExtResource( 7 )]
-visible = false
-position = Vector2( 1096, 608 )
+position = Vector2( 1097, 609 )
 next_scene = ExtResource( 6 )
 
 [node name="Corpses" type="Node2D" parent="."]
@@ -104,7 +111,6 @@ current = true
 zoom = Vector2( 0.2, 0.2 )
 
 [node name="CRT_Overlay" parent="Camera2D" instance=ExtResource( 9 )]
-visible = false
 margin_left = -963.0
 margin_top = -510.0
 margin_right = 962.0
