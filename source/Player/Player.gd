@@ -1,9 +1,6 @@
 extends KinematicBody2D
 class_name Player
 
-# REMINDER
-# Check the "Death" section in the "Code a Platform Game Character with Godot".
-
 # SOUND FILE FORMATS
 # .ogg for music, .wav for SFX
 #
@@ -20,16 +17,15 @@ class_name Player
 
 # TO BE ADDED:
 #	Death
-#		Create a Corpse on Death where you died
-#		Corpses becomes attached to Spikes
-#		Character can collide & jump on Corpse
-#			Bonus: Player can wall jump on Corpse
 #		Corpse are a finite resource, based on a "life" system
 #	Spikes
-#		Are either animated or static
-#		Kill Character on contact
-#		If Player dies on an animated Spike, corpse becomes attached to Spike.
-#			Spike is extended but the Corpse overlaps on Spike
+#		Static
+#			Corpses that are created on Vertical Spikes, are "attached" to it.
+#				Bonus: Player can wall jump on Corpse
+#		Animated
+#			First, has Raycasts that checks if a "Corpse" are on top of this Spike:
+#				if there is a "Corpse", stop animating & disable collisions.
+#				if there ISN'T a "Corpse" continue animation
 
 signal trigger_a_corpse(new_corpse)
 
@@ -106,8 +102,9 @@ func _fell_into_pit(_body: Node) -> void:
 
 # Create a "Corpse" on Death.
 func _has_died(_body: Node) -> void:
-	var is_spawning_here_man := state_machine.state.name == "Spawn"
-	if !is_spawning_here_man:
+	# Checks the current state has been/is "Spawn".
+	var has_spawned := state_machine.state.name == "Spawn"
+	if !has_spawned:
 		state_machine.transition_to("Death")
 		move.velocity = Vector2.ZERO
 	# Subtract "life" that's available to the player.

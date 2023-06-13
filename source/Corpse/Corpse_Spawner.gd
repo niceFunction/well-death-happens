@@ -18,7 +18,7 @@ func spawn_corpse(state: String) -> void:
 	created_corpse.corpses_parent = corpses_parent
 	
 	# What should the Created Corpse do when it's either in the Air or Floor?
-	# The "states" are "called" upon in the Player script.
+	# The "states" are "called" upon in the "Death" state via Player/Corpse_Spawner.
 	match state:
 		"air":
 			created_corpse.position = player.global_position

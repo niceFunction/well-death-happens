@@ -11,7 +11,6 @@ func _on_Player_animation_finished(anim_name: String) -> void:
 func physics_process(delta: float) -> void:
 	return
 
-# These happens twice, why?
 func enter(message: Dictionary = {}) -> void:
 	#if owner.camera_rig:
 	#	owner.camera_rig.is_active = false # This is for a "Camera rig" that we might want to reset.
@@ -23,7 +22,6 @@ func exit() -> void:
 	#if owner.camera_rig:
 	#	owner.camera_rig.is_active = true # This is for a "Camera rig" that we want restored.
 	corpse_creation()
-
 	owner.is_active = true
 	owner.skin.disconnect("animation_finished", self, "_on_Player_animation_finished")
 
