@@ -9,9 +9,6 @@ class_name Player
 #	Gravity (Move (Y value in "acceleration_default"))
 #	General movement speed (Move (either "max_speed_default" or X value in "acceleration_default"))
 #	Jump height
-#	Interrupting Jumping: "Fixing and interrupting the Jump" on GDquest.mavenseed.com
-#		"Fixing and interrupting the jump" on GDquest (mavenseed), should be the best option.
-#		Probably should be in the "Air" state.
 #	Jumping on Walls (How far away do you jump from it, how high up do you jump on it)
 #	WALL JUMPING MAY NEED A BETTER FIX!!
 
