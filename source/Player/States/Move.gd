@@ -13,6 +13,7 @@ export var jump_impulse: = 450.0
 var acceleration: = acceleration_default
 var max_speed: = max_speed_default
 var velocity: = Vector2.ZERO # Used for the "move_and_slide()" method
+var jump_cutoff: = false
 
 # Makes the Charadcter "jump" & changes the state to "Air".
 func unhandled_input(event: InputEvent) -> void:
@@ -20,10 +21,13 @@ func unhandled_input(event: InputEvent) -> void:
 		_state_machine.transition_to("Move/Air", {impulse = jump_impulse})
 
 func physics_process(delta: float) -> void:
+	var is_jump_interrupted: = Input.is_action_just_released("Jump") and velocity.y < 0.0
+	
 	velocity = calculate_velocity(
 		velocity, 
 		max_speed, 
-		acceleration, 
+		acceleration,
+		is_jump_interrupted, 
 		delta, 
 		get_move_direction())
 	
@@ -44,6 +48,7 @@ static func calculate_velocity(
 		old_velocity: Vector2,
 		max_speed: Vector2,
 		acceleration: Vector2,
+		is_jump_interrupted: bool,
 		delta: float,
 		move_direction: Vector2
 	) -> Vector2:
@@ -54,6 +59,9 @@ static func calculate_velocity(
 	# Clamp the velocity along the X/Y axises.
 	new_velocity.x = clamp(new_velocity.x, -max_speed.x, max_speed.x)
 	new_velocity.y = clamp(new_velocity.y, -max_speed.y, max_speed.y)
+	
+	if is_jump_interrupted:
+		new_velocity.y = 0.0
 	
 	return new_velocity
 
