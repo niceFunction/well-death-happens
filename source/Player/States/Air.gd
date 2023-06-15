@@ -1,5 +1,7 @@
 extends State
 
+signal jumped
+
 onready var jump_delay: Timer = $JumpDelay
 
 export var acceleration_x: = 5000.0
@@ -10,6 +12,7 @@ func unhandled_input(event: InputEvent) -> void:
 	# Reminder: The Jump Delay might need tweaking
 	# Coyote Jump, the Player can still jump after a small delay.
 	if event.is_action_pressed("Jump"):
+		emit_signal("jumped")
 		# If the Player "jumps" before 0, jump.
 		if move.velocity.y >= 0.0 and jump_delay.time_left > 0.0:
 			move.velocity = calculate_jump_velocity(move.jump_impulse)

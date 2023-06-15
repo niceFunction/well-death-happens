@@ -44,6 +44,10 @@ script = ExtResource( 5 )
 [node name="Idle" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 3 )
 
+[node name="JumpBuffer" type="Timer" parent="StateMachine/Move/Idle"]
+wait_time = 0.14
+one_shot = true
+
 [node name="Wall" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 9 )
 

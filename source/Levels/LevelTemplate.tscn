@@ -90,7 +90,7 @@ position = Vector2( 1033, 610 )
 position = Vector2( 961, 545 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 846, 458 )
+position = Vector2( 850, 562 )
 
 [node name="Move" parent="Player/StateMachine" index="1"]
 acceleration_default = Vector2( 1500, 1500 )
@@ -111,9 +111,9 @@ current = true
 zoom = Vector2( 0.2, 0.2 )
 
 [node name="CRT_Overlay" parent="Camera2D" instance=ExtResource( 9 )]
-margin_left = -963.0
-margin_top = -510.0
-margin_right = 962.0
-margin_bottom = 570.0
+margin_left = -615.0
+margin_top = -341.0
+margin_right = 671.0
+margin_bottom = 378.0
 
 [editable path="Player"]

@@ -30,6 +30,16 @@ func physics_process(delta: float) -> void:
 	# Moves the Character.
 	velocity = owner.move_and_slide(velocity, owner.FLOOR_NORMAL)
 
+func enter(message: Dictionary = {}) -> void:
+	# The "start" should probably something else in the future.
+	# From the Idle state, maybe have something called "_on_Air_Jumped" & call on the start function.
+	$Air.connect("jumped", $Idle.jump_buffer, "start")
+
+func exit(message: Dictionary = {}) -> void:
+	# The "start" should probably something else in the future.
+	# From the Idle state, maybe have something called "_on_Air_Jumped" & call on the start function.
+	$Air.disconnect("jumped", $Idle.jump_buffer, "start")
+
 static func calculate_velocity(
 		old_velocity: Vector2,
 		max_speed: Vector2,
