@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/Sprites/Level/WDH_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://source/Player/Player.tscn" type="PackedScene" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://source/Levels/Corpse_Storage.gd" type="Script" id=8]
 [ext_resource path="res://source/Shader/CRT_Overlay.tscn" type="PackedScene" id=9]
 [ext_resource path="res://source/Hazards/Spikes/H_Spike_Static.tscn" type="PackedScene" id=10]
-[ext_resource path="res://source/Hazards/Spikes/V_Spike_Static.tscn" type="PackedScene" id=11]
 [ext_resource path="res://source/UI/Background/Background.tscn" type="PackedScene" id=12]
 
 [node name="LevelTemplate" type="Node2D"]
@@ -19,7 +18,6 @@ script = ExtResource( 8 )
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -100
-visible = false
 
 [node name="Background" type="TextureRect" parent="BackgroundLayer"]
 anchor_right = 1.0
@@ -35,7 +33,6 @@ margin_bottom = 894.0
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 100
-visible = false
 
 [node name="DebugDock" type="MarginContainer" parent="UI"]
 anchor_bottom = 1.0
@@ -85,9 +82,6 @@ tile_data = PoolIntArray( 1507374, 8, 0, 1507375, 8, 0, 1507376, 8, 0, 1507377, 
 
 [node name="H_Spike_Static" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1033, 610 )
-
-[node name="V_Spike_Static" parent="." instance=ExtResource( 11 )]
-position = Vector2( 961, 545 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 850, 562 )

@@ -1,7 +1,6 @@
 class_name WallDetector
 extends Position2D
 
-# Reminder: Depending on the situation, "ray_bottom" might not be necessary.
 onready var ray_bottom: RayCast2D = $RayBottom
 onready var ray_top: RayCast2D = $RayTop
 
