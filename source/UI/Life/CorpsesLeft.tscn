@@ -90,7 +90,7 @@ margin_bottom = 128.0
 alignment = 1
 
 [node name="Corpse_Icon" type="TextureRect" parent="MarginContainer/Life_Container"]
-material = SubResource( 4 )
+material = SubResource( 5 )
 margin_right = 128.0
 margin_bottom = 128.0
 texture = ExtResource( 1 )

@@ -63,7 +63,7 @@ reference_path = NodePath("../../../../Player")
 properties = PoolStringArray( "current_animation" )
 
 [node name="Life" parent="." instance=ExtResource( 11 )]
-layer = 0
+follow_viewport_enable = false
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 1, 1 )
