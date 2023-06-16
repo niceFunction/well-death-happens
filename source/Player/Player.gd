@@ -1,6 +1,7 @@
 extends KinematicBody2D
 class_name Player
 
+# REMINDER: For Camera Rig: Watch "The parent Move state" for the Camera Rig (GDQuest, "Code a 2D Platform Game Character with Godot").
 # SOUND FILE FORMATS
 # .ogg for music, .wav for SFX
 #
