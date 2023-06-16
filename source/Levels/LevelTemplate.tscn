@@ -95,6 +95,7 @@ next_scene = ExtResource( 6 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 959, 519 )
+z_index = 20
 current = true
 zoom = Vector2( 0.2, 0.2 )
 
