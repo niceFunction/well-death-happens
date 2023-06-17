@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/Sprites/Level/WDH_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://source/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://source/UI/debug/DebugPanel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://source/UI/Life/Corpse_Interface.tscn" type="PackedScene" id=5]
 [ext_resource path="res://source/Levels/LevelTemplate2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://source/Flag/Flag.tscn" type="PackedScene" id=7]
@@ -58,5 +59,27 @@ margin_right = 320.0
 margin_bottom = 180.0
 
 [node name="Corpse_Interface" parent="." instance=ExtResource( 5 )]
+
+[node name="Debug" type="CanvasLayer" parent="."]
+
+[node name="DebugPanel" parent="Debug" instance=ExtResource( 3 )]
+margin_right = 117.0
+margin_bottom = 104.0
+reference_path = NodePath("../../Player/StateMachine/Move")
+properties = PoolStringArray( "velocity", "max_speed", "acceleration" )
+
+[node name="DebugPanel2" parent="Debug" instance=ExtResource( 3 )]
+margin_top = 116.0
+margin_right = 117.0
+margin_bottom = 188.0
+reference_path = NodePath("../../Player/StateMachine")
+properties = PoolStringArray( "_state_name" )
+
+[node name="DebugPanel3" parent="Debug" instance=ExtResource( 3 )]
+margin_top = 209.0
+margin_right = 117.0
+margin_bottom = 281.0
+reference_path = NodePath("../../Player")
+properties = PoolStringArray( "current_animation" )
 
 [editable path="Player"]
