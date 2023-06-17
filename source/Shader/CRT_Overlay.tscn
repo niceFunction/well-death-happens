@@ -21,12 +21,12 @@ shader_param/static_noise_intensity = 0.06
 shader_param/aberration = 0.03
 shader_param/brightness = 1.4
 shader_param/discolor = true
-shader_param/warp_amount = 0.5
+shader_param/warp_amount = 0.16
 shader_param/clip_warp = false
-shader_param/vignette_intensity = 0.4
+shader_param/vignette_intensity = 0.3
 shader_param/vignette_opacity = 0.5
 
 [node name="CRT_Overlay" type="ColorRect"]
 material = SubResource( 1 )
-margin_right = 1925.0
-margin_bottom = 1080.0
+margin_right = 640.0
+margin_bottom = 360.0
