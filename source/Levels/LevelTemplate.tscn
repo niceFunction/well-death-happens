@@ -53,6 +53,9 @@ tile_data = PoolIntArray( -1, 8, 0, -65536, 8, 0, -65535, 8, 0, -65534, 8, 0, -6
 [node name="H_Spike_Static" parent="." instance=ExtResource( 10 )]
 position = Vector2( 393, 289 )
 
+[node name="H_Spike_Static2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 777, 289 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 292, 260 )
 

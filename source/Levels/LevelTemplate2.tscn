@@ -27,19 +27,15 @@ theme = ExtResource( 5 )
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 424.0
-margin_bottom = 344.0
+margin_bottom = 355.0
 
 [node name="DebugPanel" parent="UI/DebugDock/Column" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_right = 408.0
 margin_bottom = 196.0
 reference_path = NodePath("../../../../Player/StateMachine/Move")
 properties = PoolStringArray( "velocity", "max_speed", "acceleration" )
 
 [node name="DebugPanel2" parent="UI/DebugDock/Column" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_top = 204.0
 margin_right = 408.0
 margin_bottom = 332.0
@@ -47,8 +43,6 @@ reference_path = NodePath("../../../../Player/StateMachine")
 properties = PoolStringArray( "_state_name" )
 
 [node name="DebugPanel3" parent="UI/DebugDock/Column" instance=ExtResource( 4 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
 margin_top = 340.0
 margin_right = 408.0
 margin_bottom = 468.0
