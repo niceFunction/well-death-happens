@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/Sprites/Level/WDH_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://source/Player/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://source/Hazards/Spikes/H_Spike_Static.tscn" type="PackedScene" id=10]
 [ext_resource path="res://source/Shader/CRT_Layer.tscn" type="PackedScene" id=11]
 [ext_resource path="res://source/UI/Background/ParallaxBackground.tscn" type="PackedScene" id=12]
+[ext_resource path="res://source/Hazards/Spikes/V_Spike_Static.tscn" type="PackedScene" id=13]
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource( 8 )
@@ -56,6 +57,9 @@ position = Vector2( 393, 289 )
 [node name="H_Spike_Static2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 777, 289 )
 
+[node name="V_Spike_Static" parent="." instance=ExtResource( 13 )]
+position = Vector2( 49, 273 )
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 292, 260 )
 
@@ -70,7 +74,7 @@ max_slide_speed = 100.0
 remote_path = NodePath("../../Camera_Rig")
 
 [node name="Flag" parent="." instance=ExtResource( 7 )]
-position = Vector2( 409, 193 )
+position = Vector2( 393, 193 )
 next_scene = ExtResource( 6 )
 
 [node name="Corpses" type="Node2D" parent="."]
