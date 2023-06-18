@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 		# static_body_2d.global_position = vertical_spike.add_child(Corpse).postion
 # Vertical Spikes should probably be in a "group" & then the the "Corpse",
 # should somehow detect the group
+# https://docs.godotengine.org/en/stable/tutorials/scripting/groups.html
 
 # Swaps the KinematicBody2D to a StaticBody2D
 func swap_to_static_body() -> void:
