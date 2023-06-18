@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/Sprites/Level/WDH_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://source/Player/Player.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://source/Levels/LevelTemplate2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://source/Flag/Flag.tscn" type="PackedScene" id=7]
 [ext_resource path="res://source/Levels/Corpse_Storage.gd" type="Script" id=8]
-[ext_resource path="res://source/Shader/CRT_Overlay.tscn" type="PackedScene" id=9]
 [ext_resource path="res://source/Hazards/Spikes/H_Spike_Static.tscn" type="PackedScene" id=10]
 [ext_resource path="res://source/Shader/CRT_Layer.tscn" type="PackedScene" id=11]
 [ext_resource path="res://source/UI/Background/ParallaxBackground.tscn" type="PackedScene" id=12]
@@ -21,6 +20,7 @@ script = ExtResource( 8 )
 
 [node name="Debug" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="DebugPanel" parent="Debug" instance=ExtResource( 3 )]
 margin_right = 117.0
@@ -58,7 +58,7 @@ position = Vector2( 393, 289 )
 position = Vector2( 777, 289 )
 
 [node name="V_Spike_Static" parent="." instance=ExtResource( 13 )]
-position = Vector2( 49, 273 )
+position = Vector2( 49, 257 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 292, 260 )
@@ -79,9 +79,6 @@ next_scene = ExtResource( 6 )
 
 [node name="Corpses" type="Node2D" parent="."]
 
-[node name="CRT_Overlay" parent="." instance=ExtResource( 9 )]
-visible = false
-
 [node name="Camera_Rig" parent="." instance=ExtResource( 4 )]
 position = Vector2( 292, 260 )
 current = true
@@ -99,5 +96,6 @@ drag_margin_bottom = 0.69
 [node name="Game_Interface" parent="." instance=ExtResource( 5 )]
 
 [node name="CRT_Layer" parent="." instance=ExtResource( 11 )]
+visible = false
 
 [editable path="Player"]

@@ -34,4 +34,4 @@ func swap_to_static_body() -> void:
 	queue_free()
 
 func vertical_spike_corpse(_body: Node) -> void:
-	return
+	print("banana juice")

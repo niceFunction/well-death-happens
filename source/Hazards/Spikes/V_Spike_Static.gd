@@ -8,6 +8,6 @@ func _ready() -> void:
 func _on_player_body_entered(body: Node) -> void:
 	return
 
-
 func _on_corpse_body_entered(body: Node) -> void:
-	return
+	if body.is_in_group("Corpse"):
+		print("Pear Jam")
