@@ -30,6 +30,7 @@ func _physics_process(delta: float) -> void:
 # Vertical Spikes should probably be in a "group" & then the the "Corpse",
 # should somehow detect the group
 # https://docs.godotengine.org/en/stable/tutorials/scripting/groups.html
+# https://gamedev.stackexchange.com/questions/179788/godot-how-do-i-get-the-id-mask-for-a-physics-layer-by-name
 
 # Swaps the KinematicBody2D to a StaticBody2D
 func swap_to_static_body() -> void:
