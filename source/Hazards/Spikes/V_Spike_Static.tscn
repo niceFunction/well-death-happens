@@ -9,7 +9,7 @@ extents = Vector2( 8, 8 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 7, 6.5 )
 
-[node name="V_Spike_Static" type="Area2D"]
+[node name="V_Spike_Static" type="Area2D" groups=["VerticalSpike"]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
