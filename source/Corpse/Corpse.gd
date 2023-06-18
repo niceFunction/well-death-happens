@@ -31,6 +31,7 @@ func _physics_process(delta: float) -> void:
 # should somehow detect the group
 # https://docs.godotengine.org/en/stable/tutorials/scripting/groups.html
 # https://gamedev.stackexchange.com/questions/179788/godot-how-do-i-get-the-id-mask-for-a-physics-layer-by-name
+# Create a "Group" called "Corpses", then in func below, static_body_2d.add_group("Corpses")
 
 # Swaps the KinematicBody2D to a StaticBody2D
 func swap_to_static_body() -> void:
