@@ -1,6 +1,7 @@
 extends Area2D
 
 onready var player = get_owner().get_node("Player")
+onready var corpse: Corpse = $Corpse
 
 func _ready() -> void:
 	connect("body_entered", player, "_has_died")

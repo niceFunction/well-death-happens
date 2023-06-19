@@ -9,7 +9,6 @@ var velocity := Vector2.ZERO
 var corpses_parent: Node2D
 
 func _ready() -> void:
-	#print("Pears")
 	return
 
 func _physics_process(delta: float) -> void:

@@ -20,6 +20,9 @@ class_name Player
 #		Static
 #			Corpses that are created on Vertical Spikes, are "attached" to it.
 #				Bonus: Player can wall jump on Corpse
+#				READ THIS: Have an object in the level that has references to Vertical Spike
+#				& the Corpse, then from this object, child the Corpse to Vertical
+#				Spike.
 #		Animated
 #			First, has Raycasts that checks if a "Corpse" are on top of this Spike:
 #				if there is a "Corpse", stop animating & disable collisions.
