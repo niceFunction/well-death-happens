@@ -1,7 +1,7 @@
 extends Area2D
 
 # When a "collision" or body enters, emit this signal
-signal death_happen
+signal player_died_on_spike
 
 onready var player = get_owner().get_node("Player")
 
