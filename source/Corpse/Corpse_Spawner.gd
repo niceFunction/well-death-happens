@@ -2,6 +2,7 @@ class_name Corpse_Spawner
 extends Node2D
 
 onready var player: Player = get_parent() as Player
+#var vertical_spike: V_Spike_Static = get_parent() as V_Spike_Static
 
 var corpse_packed_scene := preload("res://source/Corpse/Corpse.tscn")
 var corpses_parent: Node2D
@@ -27,3 +28,7 @@ func spawn_corpse(state: String) -> void:
 			created_corpse.position = player.global_position
 			corpses_parent.add_child(created_corpse)
 			created_corpse.swap_to_static_body()
+		#"vertical spike:"
+		#created_corpse.posistion = player.global_position
+		#vertical_spike.add_child(created_corpse)
+		#created_corpse.swap_to_static_body()

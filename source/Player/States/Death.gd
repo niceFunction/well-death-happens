@@ -28,6 +28,12 @@ func exit() -> void:
 func corpse_creation() -> void:
 	if not owner.is_on_floor():
 		handle_death_in_air()
+	# the following statement should be something like this maybe?
+	#elif owner.collider.is_colliding().is_in_group("VerticalSpikes"):
+	#	handle_death_on_vertical_spike()
+	# get vertical spike body somehow
+	elif owner.collider.is_colliding().is_in_group("VerticalSpikes"):
+		handle_death_on_vertical_spike()
 	else:
 		handle_death_on_floor()
 
@@ -37,3 +43,7 @@ func handle_death_in_air() -> void:
 
 func handle_death_on_floor() -> void:
 	owner.corpse_spawner.spawn_corpse("floor")
+
+func handle_death_on_vertical_spike() -> void:
+#	owner.corpse_spawner.spawn_corpse("vertical spike")
+	print("In: handle death on vertical spikes")
