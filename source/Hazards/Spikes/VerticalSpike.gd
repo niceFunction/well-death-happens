@@ -1,5 +1,8 @@
 extends Area2D
 
+# When a "collision" or body enters, emit this signal
+signal death_happen
+
 onready var player = get_owner().get_node("Player")
 
 func _ready() -> void:

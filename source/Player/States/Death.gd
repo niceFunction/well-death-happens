@@ -33,8 +33,8 @@ func corpse_creation() -> void:
 	#	handle_death_on_vertical_spike()
 	# get vertical spike body somehow
 	# Or use signals?
-	elif owner.collider.is_colliding().is_in_group("VerticalSpikes"):
-		handle_death_on_vertical_spike()
+	#elif owner.collider.is_colliding().is_in_group("VerticalSpikes"):
+		#handle_death_on_vertical_spike()
 	else:
 		handle_death_on_floor()
 
