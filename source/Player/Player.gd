@@ -52,7 +52,7 @@ onready var current_animation: String = ""
 
 # Triggering the Corpses to spawn should probably be moved to a Death state or something.
 onready var corpse_spawner := $Corpse_Spawner 
-onready var just_died := false
+onready var just_died := true
 
 const FLOOR_NORMAL: = Vector2.UP
 var is_active: = true setget set_is_active
