@@ -93,7 +93,6 @@ drag_margin_bottom = 0.69
 [node name="Game_Interface" parent="." instance=ExtResource( 5 )]
 
 [node name="CRT_Layer" parent="." instance=ExtResource( 11 )]
-visible = false
 
 [node name="VerticalSpike" parent="." instance=ExtResource( 9 )]
 position = Vector2( 49, 257 )

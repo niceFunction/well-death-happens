@@ -10,14 +10,12 @@ func _ready() -> void:
 
 func _on_player_body_entered(body: Node) -> void:
 	#player_collided_on_spike()
-	if !player.state_machine.state.name == "Spawn":
-		player_collided_on_spike()
+#	if !player.state_machine.state.name == "Spawn":
+#		player_collided_on_spike()
 	return
 
 # I don't think that this signal is being emitted properly as it should.
 # Most likely needs rework, probably need to check the current name
 # of the state machine?
-func player_collided_on_spike():
-	#if player.just_died:
-	emit_signal("player_died_on_spike")
-	print("bananas")
+#func player_collided_on_spike():
+#	emit_signal("player_died_on_spike")

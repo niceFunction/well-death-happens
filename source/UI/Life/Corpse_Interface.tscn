@@ -16,7 +16,7 @@ resource_name = "LowLife"
 length = 0.001
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("PanelContainer/MarginContainer/HBoxContainer/CorpseIcon:rect_position")
+tracks/0/path = NodePath("Life_PanelContainer/Margin_Container/Horizontal_Box/CorpseIcon:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -28,7 +28,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("PanelContainer/MarginContainer/HBoxContainer/CorpseIcon:material")
+tracks/1/path = NodePath("Life_PanelContainer/Margin_Container/Horizontal_Box/CorpseIcon:material")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -47,7 +47,7 @@ shader = ExtResource( 4 )
 resource_name = "START_REF"
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("PanelContainer/MarginContainer/HBoxContainer/CorpseIcon:rect_position")
+tracks/0/path = NodePath("Life_PanelContainer/Margin_Container/Horizontal_Box/CorpseIcon:rect_position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -59,7 +59,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("PanelContainer/MarginContainer/HBoxContainer/CorpseIcon:material")
+tracks/1/path = NodePath("Life_PanelContainer/Margin_Container/Horizontal_Box/CorpseIcon:material")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -73,7 +73,7 @@ tracks/1/keys = {
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
-[node name="Corpse_Interface" type="Control"]
+[node name="Corpse_Interface_Base" type="Control"]
 margin_right = 640.0
 margin_bottom = 360.0
 theme = ExtResource( 1 )
@@ -82,14 +82,14 @@ theme = ExtResource( 1 )
 anims/LowLife = SubResource( 3 )
 anims/START_REF = SubResource( 5 )
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="Life_PanelContainer" type="PanelContainer" parent="."]
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 82.0
 margin_bottom = 41.0
 custom_styles/panel = SubResource( 1 )
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="Margin_Container" type="MarginContainer" parent="Life_PanelContainer"]
 margin_right = 75.0
 margin_bottom = 34.0
 custom_constants/margin_right = 1
@@ -97,27 +97,27 @@ custom_constants/margin_top = 1
 custom_constants/margin_left = 1
 custom_constants/margin_bottom = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="Horizontal_Box" type="HBoxContainer" parent="Life_PanelContainer/Margin_Container"]
 margin_left = 1.0
 margin_top = 1.0
 margin_right = 74.0
 margin_bottom = 33.0
 custom_constants/separation = 3
 
-[node name="CorpseIcon" type="TextureRect" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="CorpseIcon" type="TextureRect" parent="Life_PanelContainer/Margin_Container/Horizontal_Box"]
 material = SubResource( 4 )
 margin_right = 32.0
 margin_bottom = 32.0
 texture = ExtResource( 3 )
 
-[node name="CorpseLabel_Container" type="CenterContainer" parent="PanelContainer/MarginContainer/HBoxContainer"]
+[node name="LifeAmount_Container" type="CenterContainer" parent="Life_PanelContainer/Margin_Container/Horizontal_Box"]
 margin_left = 35.0
 margin_right = 73.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 38, 0 )
 size_flags_horizontal = 3
 
-[node name="CorpseLabel" type="Label" parent="PanelContainer/MarginContainer/HBoxContainer/CorpseLabel_Container"]
+[node name="LifeAmount_Label" type="Label" parent="Life_PanelContainer/Margin_Container/Horizontal_Box/LifeAmount_Container"]
 margin_left = 1.0
 margin_top = 4.0
 margin_right = 37.0

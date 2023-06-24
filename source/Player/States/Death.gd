@@ -31,8 +31,8 @@ func corpse_creation() -> void:
 	# the following statement should be something like this maybe?
 	# get vertical spike body somehow
 	# Or use signals?
-	elif owner.just_died:
-		handle_death_on_vertical_spike()
+	#elif owner.just_died:
+	#	handle_death_on_vertical_spike()
 	else:
 		handle_death_on_floor()
 
