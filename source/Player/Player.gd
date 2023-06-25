@@ -52,10 +52,11 @@ onready var current_animation: String = ""
 
 # Triggering the Corpses to spawn should probably be moved to a Death state or something.
 onready var corpse_spawner := $Corpse_Spawner 
-onready var just_died := true
 
 const FLOOR_NORMAL: = Vector2.UP
 var is_active: = true setget set_is_active
+
+export var life = 20
 
 func set_is_active(value: bool) -> void:
 	is_active = value
@@ -109,3 +110,8 @@ func _has_died(_body: Node) -> void:
 		state_machine.transition_to("Death")
 		move.velocity = Vector2.ZERO
 	# Subtract "life" that's available to the player.
+
+func reduce_life(amount):
+	life -= amount
+	if life < 0:
+		life = 0

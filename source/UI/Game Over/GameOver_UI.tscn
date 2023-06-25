@@ -1,0 +1,144 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/Sprites/UI/GameOver_Reference.png" type="Texture" id=1]
+[ext_resource path="res://assets/Fonts/Ac437_IBM_BIOS.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="Animation" id=5]
+resource_name = "Restart_SELECTED"
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("PanelContainer/MarginContainer/Vertical_Container/RestartQuit_Boxes/RestartQuit_Labels/Restart_Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.001, 0.5 ),
+"transitions": PoolRealArray( 1, 1e-05, 1e-05 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 62
+extra_spacing_bottom = -8
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 28
+extra_spacing_top = -3
+extra_spacing_bottom = -6
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 26
+font_data = ExtResource( 2 )
+
+[node name="GameOver_UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Restart_SELECTED = SubResource( 5 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -103.0
+margin_top = -129.0
+margin_right = 105.0
+margin_bottom = 129.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+margin_right = 208.0
+margin_bottom = 261.0
+
+[node name="Vertical_Container" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+margin_right = 208.0
+margin_bottom = 261.0
+custom_constants/separation = 46
+
+[node name="GameOver_Container" type="VBoxContainer" parent="PanelContainer/MarginContainer/Vertical_Container"]
+margin_right = 208.0
+margin_bottom = 135.0
+custom_constants/separation = 25
+
+[node name="Game" type="Label" parent="PanelContainer/MarginContainer/Vertical_Container/GameOver_Container"]
+margin_right = 208.0
+margin_bottom = 55.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_fonts/font = SubResource( 2 )
+text = "GAME"
+align = 1
+valign = 1
+
+[node name="Over" type="Label" parent="PanelContainer/MarginContainer/Vertical_Container/GameOver_Container"]
+margin_top = 80.0
+margin_right = 208.0
+margin_bottom = 135.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_fonts/font = SubResource( 2 )
+text = "OVER"
+align = 1
+valign = 1
+
+[node name="RestartQuit_Boxes" type="HBoxContainer" parent="PanelContainer/MarginContainer/Vertical_Container"]
+margin_top = 181.0
+margin_right = 208.0
+margin_bottom = 261.0
+
+[node name="RestartQuit_Buttons" type="VBoxContainer" parent="PanelContainer/MarginContainer/Vertical_Container/RestartQuit_Boxes"]
+margin_right = 35.0
+margin_bottom = 80.0
+custom_constants/separation = 27
+
+[node name="Restart_Button" type="Button" parent="PanelContainer/MarginContainer/Vertical_Container/RestartQuit_Boxes/RestartQuit_Buttons"]
+margin_right = 35.0
+margin_bottom = 26.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 4 )
+text = ">"
+flat = true
+
+[node name="Quit_Button" type="Button" parent="PanelContainer/MarginContainer/Vertical_Container/RestartQuit_Boxes/RestartQuit_Buttons"]
+margin_top = 53.0
+margin_right = 35.0
+margin_bottom = 79.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 4 )
+text = ">"
+flat = true
+
+[node name="RestartQuit_Labels" type="VBoxContainer" parent="PanelContainer/MarginContainer/Vertical_Container/RestartQuit_Boxes"]
+margin_left = 39.0
+margin_right = 193.0
+margin_bottom = 80.0
+custom_constants/separation = 26
+
+[node name="Restart_Label" type="Label" parent="PanelContainer/MarginContainer/Vertical_Container/RestartQuit_Boxes/RestartQuit_Labels"]
+margin_right = 154.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 3 )
+text = "RESTART"
+
+[node name="Quit_Label" type="Label" parent="PanelContainer/MarginContainer/Vertical_Container/RestartQuit_Boxes/RestartQuit_Labels"]
+margin_top = 53.0
+margin_right = 154.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 3 )
+text = "QUIT"
+
+[node name="Reference" type="TextureRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.203922 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
