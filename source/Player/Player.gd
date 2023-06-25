@@ -111,6 +111,10 @@ func _has_died(_body: Node) -> void:
 		move.velocity = Vector2.ZERO
 	# Subtract "life" that's available to the player.
 
+# https://www.gdquest.com/tutorial/godot/design-patterns/event-bus-singleton/
+# https://www.gdquest.com/tutorial/godot/best-practices/signals/
+# https://www.gdquest.com/tutorial/godot/learning-paths/getting-started-in-2021/chapter/9.using-signals/
+
 func reduce_life(amount):
 	life -= amount
 	if life < 0:
