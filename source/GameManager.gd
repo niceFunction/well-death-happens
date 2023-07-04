@@ -3,6 +3,7 @@ extends Node2D
 signal corpses_changed(new_corpses)
 
 # How to use Godot's Signals: using custom signals: https://youtu.be/NK_SYVO7lMA?t=754
+# The Player probably needs to hold on to "life", maybe?
 
 # The "life" system, the starting "corpses" that the player can use
 export onready var corpses := 10
