@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/Sprites/Level/WDH_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://source/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://source/UI/debug/DebugPanel.tscn" type="PackedScene" id=3]
 [ext_resource path="res://source/Camera/Camera_Rig.tscn" type="PackedScene" id=4]
-[ext_resource path="res://source/UI/Life/Game_Interface.tscn" type="PackedScene" id=5]
 [ext_resource path="res://source/Levels/LevelTemplate2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://source/Flag/Flag.tscn" type="PackedScene" id=7]
 [ext_resource path="res://source/Levels/Corpse_Storage.gd" type="Script" id=8]
@@ -12,9 +11,14 @@
 [ext_resource path="res://source/Hazards/Spikes/HorizontalSpike.tscn" type="PackedScene" id=10]
 [ext_resource path="res://source/Shader/CRT_Layer.tscn" type="PackedScene" id=11]
 [ext_resource path="res://source/UI/Background/ParallaxBackground.tscn" type="PackedScene" id=12]
+[ext_resource path="res://source/GameManager.tscn" type="PackedScene" id=13]
+[ext_resource path="res://source/Levels/GameOver.tscn" type="PackedScene" id=14]
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource( 8 )
+
+[node name="GameManager" parent="." instance=ExtResource( 13 )]
+game_over_scene = ExtResource( 14 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 12 )]
 
@@ -83,8 +87,6 @@ drag_margin_left = 0.51
 drag_margin_top = 0.65
 drag_margin_right = 0.5
 drag_margin_bottom = 0.69
-
-[node name="Game_Interface" parent="." instance=ExtResource( 5 )]
 
 [node name="CRT_Layer" parent="." instance=ExtResource( 11 )]
 

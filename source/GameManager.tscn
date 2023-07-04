@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://source/GameManager.gd" type="Script" id=1]
+[ext_resource path="res://assets/Sprites/UI/LifeIcon_32_white.png" type="Texture" id=2]
+[ext_resource path="res://assets/Fonts/IBM_BIOS.tres" type="DynamicFont" id=3]
+[ext_resource path="res://source/UI/Life/StartLife.gdshader" type="Shader" id=4]
+[ext_resource path="res://source/UI/Life/LifeLow.gdshader" type="Shader" id=5]
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = ExtResource( 5 )
+shader_param/Strength = 2.0
+shader_param/RandomOffset = 1.0
+
+[sub_resource type="Animation" id=5]
+resource_name = "LowLife"
+length = 0.001
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CorpseUI/Life_PanelContainer/Margin_Container/Horizontal_Box/CorpseIcon:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CorpseUI/Life_PanelContainer/Margin_Container/Horizontal_Box/CorpseIcon:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ SubResource( 8 ) ]
+}
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 4 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "START_REF"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CorpseUI/Life_PanelContainer/Margin_Container/Horizontal_Box/CorpseIcon:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CorpseUI/Life_PanelContainer/Margin_Container/Horizontal_Box/CorpseIcon:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ SubResource( 2 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[node name="GameManager" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CorpseUI" type="CanvasLayer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CorpseUI"]
+root_node = NodePath("../..")
+anims/LowLife = SubResource( 5 )
+anims/START_REF = SubResource( 6 )
+
+[node name="Life_PanelContainer" type="PanelContainer" parent="CorpseUI"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 95.0
+margin_bottom = 54.0
+custom_styles/panel = SubResource( 7 )
+
+[node name="Margin_Container" type="MarginContainer" parent="CorpseUI/Life_PanelContainer"]
+margin_right = 75.0
+margin_bottom = 34.0
+custom_constants/margin_right = 1
+custom_constants/margin_top = 1
+custom_constants/margin_left = 1
+custom_constants/margin_bottom = 1
+
+[node name="Horizontal_Box" type="HBoxContainer" parent="CorpseUI/Life_PanelContainer/Margin_Container"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 74.0
+margin_bottom = 33.0
+custom_constants/separation = 3
+
+[node name="CorpseIcon" type="TextureRect" parent="CorpseUI/Life_PanelContainer/Margin_Container/Horizontal_Box"]
+material = SubResource( 2 )
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 2 )
+
+[node name="LifeAmount_Container" type="CenterContainer" parent="CorpseUI/Life_PanelContainer/Margin_Container/Horizontal_Box"]
+margin_left = 35.0
+margin_right = 73.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 38, 0 )
+size_flags_horizontal = 3
+
+[node name="LifeAmount_Label" type="Label" parent="CorpseUI/Life_PanelContainer/Margin_Container/Horizontal_Box/LifeAmount_Container"]
+margin_left = 1.0
+margin_top = 4.0
+margin_right = 37.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 3 )
+text = "24"
+align = 1
+valign = 1
