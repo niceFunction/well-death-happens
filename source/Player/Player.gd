@@ -28,35 +28,32 @@ class_name Player
 #				if there is a "Corpse", stop animating & disable collisions.
 #				if there ISN'T a "Corpse" continue animation
 
-signal trigger_a_corpse(new_corpse)
+const FLOOR_NORMAL: = Vector2.UP
+
+signal corpses_changed(new_corpses)
+
+export var corpse_lives := 10
+
+var is_active: = true setget set_is_active
 
 onready var state_machine: StateMachine = $StateMachine
+onready var move: State = $StateMachine/Move # Used to get access to the velocity variable.
+
 onready var collider: CollisionShape2D = $CollisionShape2D
 
 # Detect if the Character has collided with a Wall/Floor.
 onready var wall_detector: WallDetector = $WallDetector
 onready var floor_detector: FloorDetector = $FloorDetector
 
-# 3 variables used for playing animations.
+# Variables used for playing animations.
 onready var skin: Node2D = $PlayerSkin
 onready var animation_player: AnimationPlayer = $PlayerSkin/AnimationPlayer
 onready var start_scale: Vector2 = skin.scale
-
-# Used to get access to the velocity variable.
-onready var move: State = $StateMachine/Move
-# A string that gets "filled" with the animation_player.current_animation.
+# What animation is currently playing?
 onready var current_animation: String = ""
-# If I want to use a landing animation.
-# onready var floor_ray: RayCast2D = $FloorDetector
-# onready var idle_timer: Timer = $IdleTimer # Need a Timer Node.
 
 # Triggering the Corpses to spawn should probably be moved to a Death state or something.
 onready var corpse_spawner := $Corpse_Spawner 
-
-const FLOOR_NORMAL: = Vector2.UP
-var is_active: = true setget set_is_active
-
-export var life = 20
 
 func set_is_active(value: bool) -> void:
 	is_active = value
@@ -109,13 +106,13 @@ func _has_died(_body: Node) -> void:
 	if !has_spawned:
 		state_machine.transition_to("Death")
 		move.velocity = Vector2.ZERO
+		take_damage(1)
 	# Subtract "life" that's available to the player.
 
-# https://www.gdquest.com/tutorial/godot/design-patterns/event-bus-singleton/
-# https://www.gdquest.com/tutorial/godot/best-practices/signals/
-# https://www.gdquest.com/tutorial/godot/learning-paths/getting-started-in-2021/chapter/9.using-signals/
-
-func reduce_life(amount):
-	life -= amount
-	if life < 0:
-		life = 0
+func take_damage(amount):
+	corpse_lives -= amount
+	
+	if corpse_lives < 0:
+		corpse_lives = 0
+		
+	emit_signal("corpses_changed", corpse_lives)
