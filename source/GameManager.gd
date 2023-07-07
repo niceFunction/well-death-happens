@@ -14,7 +14,6 @@ onready var LifeAmount = $CorpseUI/Life_PanelContainer/Margin_Container/Horizont
 onready var corpse_animation_player: AnimationPlayer = $CorpseUI/AnimationPlayer
 onready var player = get_owner().get_node("Player")
 
-
 func _get_configuration_warning() -> String:
 	return "game_over_scene needs a Scene to inform the Player if the game is over!" if not game_over_scene else ""
 
@@ -25,20 +24,11 @@ func _process(delta: float) -> void:
 	LifeAmount.text = str(player.corpse_lives)
 	if player.corpse_lives <= 3:
 		corpse_animation_player.play("LowLife")
-	
-func set_corpse_total(new_corpse_amount: int) -> void:
-	player.corpse_lives = new_corpse_amount
-	LifeAmount.text = str(player.corpse_lives)
 
-#func take_damage(amount):
-	#corpse_lives -= amount
-	
-	#if corpse_lives <= 3:
-	#	corpse_animation_player.play("LowLife")
-	
-	#if corpse_lives < 0:
-	#	corpse_lives = 0
-	#	get_tree().change_scene_to(game_over_scene)
-		
-	#emit_signal("corpses_changed", corpse_lives)
-	#pass
+func load_level_parameters(new_corpse_parameters: Dictionary):
+	player.corpse_parameters = new_corpse_parameters
+	LifeAmount.text = str(player.corpse_parameters.lives)
+
+func set_corpse_total(new_corpse_amount: int) -> void:
+	player.corpse_parameters.lives = new_corpse_amount
+	LifeAmount.text = str(player.corpse_parameters.lives)

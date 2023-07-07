@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/Sprites/Level/WDH_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/Sprites/Other/Background.png" type="Texture" id=2]
@@ -6,9 +6,13 @@
 [ext_resource path="res://source/UI/debug/DebugPanel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/theme/gdquest.theme" type="Theme" id=5]
 [ext_resource path="res://source/UI/Background/Background.tscn" type="PackedScene" id=6]
-[ext_resource path="res://source/Shader/CRT_Overlay.tscn" type="PackedScene" id=7]
+[ext_resource path="res://source/Camera/Camera_Rig.tscn" type="PackedScene" id=7]
+[ext_resource path="res://source/GameManager.tscn" type="PackedScene" id=8]
+[ext_resource path="res://source/Shader/CRT_Layer.tscn" type="PackedScene" id=9]
 
 [node name="LevelTemplate2" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource( 8 )]
 
 [node name="Background_Texture" parent="." instance=ExtResource( 6 )]
 margin_right = 640.0
@@ -70,13 +74,16 @@ tile_data = PoolIntArray( -1, 8, 0, -65536, 8, 0, -65535, 8, 0, -65534, 8, 0, -6
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 72, 297 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 320, 180 )
-z_index = 20
-current = true
+[node name="RemoteTransform2D" parent="Player" index="7"]
+remote_path = NodePath("../../Camera_Rig")
 
-[node name="CRT_Overlay" parent="Camera2D" instance=ExtResource( 7 )]
-margin_left = -320.0
-margin_top = -180.0
-margin_right = 320.0
-margin_bottom = 180.0
+[node name="Camera_Rig" parent="." instance=ExtResource( 7 )]
+position = Vector2( 72, 297 )
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 330
+
+[node name="CRT_Layer" parent="." instance=ExtResource( 9 )]
+
+[editable path="Player"]

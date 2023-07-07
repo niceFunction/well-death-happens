@@ -33,6 +33,9 @@ const FLOOR_NORMAL: = Vector2.UP
 signal corpses_changed(new_corpses)
 
 export var corpse_lives := 10
+var corpse_parameters:= {
+	"lives": corpse_lives
+}
 
 var is_active: = true setget set_is_active
 
