@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 	LifeAmount.text = str(player.corpse_lives)
 	if player.corpse_lives <= 3:
 		corpse_animation_player.play("LowLife")
+	print(player.corpse_lives)
 
 func load_level_parameters(new_corpse_parameters: Dictionary):
 	player.corpse_parameters = new_corpse_parameters
