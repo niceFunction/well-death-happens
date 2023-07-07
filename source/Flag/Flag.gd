@@ -3,10 +3,15 @@ extends Area2D
 
 export var next_scene: PackedScene
 
-onready var current_level = next_scene
+# Here we probably want the name of the level & not "next_scene"
+# Should it perhaps be empty & in like _process, we set the name
+# of the level?
+onready var current_level = null
 
 onready var player = get_owner().get_node("Player")
-#onready var game_manager: GameManager = $GameManager
+
+func _process(delta: float) -> void:
+	current_level = next_scene
 
 func _on_body_entered(body: Node) -> void:
 	teleport()
@@ -22,3 +27,4 @@ func teleport() -> void:
 
 func transfer_data_between_scenes(old_scene, new_scene):
 	new_scene.load_level_parameters(old_scene.player.corpse_parameters)
+	#new_scene.player.corpse_lives = old_scene.player.corpse_lives
