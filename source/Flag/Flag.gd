@@ -6,7 +6,7 @@ export var next_scene: PackedScene
 # Here we probably want the name of the level & not "next_scene"
 # Should it perhaps be empty & in like _process, we set the name
 # of the level?
-onready var current_level = null
+onready var current_level = next_scene
 
 onready var player = get_owner().get_node("Player")
 
@@ -27,4 +27,3 @@ func teleport() -> void:
 
 func transfer_data_between_scenes(old_scene, new_scene):
 	new_scene.load_level_parameters(old_scene.player.corpse_parameters)
-	#new_scene.player.corpse_lives = old_scene.player.corpse_lives
