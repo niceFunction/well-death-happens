@@ -10,17 +10,14 @@ func _ready() -> void:
 func _set_player(player):
 	if player.has_node("Corpse_Spawner"):
 		player.get_node("Corpse_Spawner").connect(
-			"corpse_created", self, "_on_Corpse_Spawner_corpse_spawned"
+			"created_corpse", self, "_on_Corpse_Spawner_corpse_spawned"
 		)
 		player.connect("tree_exiting", self,"_on_Player_tree_exiting")
 
 func _on_Corpse_Spawner_corpse_spawned(corpse):
 	corpses_parent.add_child(corpse)
 
-func _on_Player_tree_exiting(corpse):
+func _on_Player_tree_exiting():
 	player.get_node("Corpse_Spawner").disconnect(
-		"corpse_created", self, "_on_Corpse_Spawner_corpse_spawned"
+		"created_corpse", self, "_on_Corpse_Spawner_corpse_spawned"
 	)
-
-#func _ready() -> void:
-#	player.corpse_spawner.corpses_parent = corpses_parent
