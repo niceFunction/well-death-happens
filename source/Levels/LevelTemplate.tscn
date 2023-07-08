@@ -72,6 +72,7 @@ position = Vector2( 393, 193 )
 next_scene = ExtResource( 6 )
 
 [node name="Corpses" type="Node2D" parent="."]
+position = Vector2( 1, 0 )
 
 [node name="Camera_Rig" parent="." instance=ExtResource( 4 )]
 position = Vector2( 292, 260 )
@@ -101,5 +102,12 @@ position = Vector2( 777, 289 )
 [node name="Fallpit" parent="." instance=ExtResource( 5 )]
 position = Vector2( 585, 375 )
 scale = Vector2( 2.4, 1 )
+
+[node name="HorzontalSpike3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 553, 289 )
+
+[node name="VerticalSpike2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 833, 193 )
+scale = Vector2( -1, 1 )
 
 [editable path="Player"]
