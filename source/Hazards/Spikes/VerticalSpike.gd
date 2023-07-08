@@ -10,7 +10,7 @@ onready var player = get_owner().get_node("Player")
 	
 
 func _on_player_body_entered(body: Node) -> void:
-	if "take_damage" in body:
+	if body.has_method("take_damage"):
 		body.take_damage(1, true)
 
 # I don't think that this signal is being emitted properly as it should.
