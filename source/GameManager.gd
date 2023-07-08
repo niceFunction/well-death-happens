@@ -26,9 +26,9 @@ func _process(delta: float) -> void:
 		corpse_animation_player.play("LowLife")
 	print(player.corpse_lives)
 
-func load_level_parameters(new_corpse_parameters: Dictionary):
-	player.corpse_parameters = new_corpse_parameters
-	LifeAmount.text = str(player.corpse_parameters.lives)
+#func load_level_parameters(new_corpse_parameters: Dictionary):
+#	player.corpse_parameters = new_corpse_parameters
+#	LifeAmount.text = str(player.corpse_parameters.lives)
 
 func set_corpse_total(new_corpse_amount: int) -> void:
 	player.corpse_parameters.lives = new_corpse_amount
