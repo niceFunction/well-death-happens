@@ -109,13 +109,18 @@ func _has_died(_body: Node) -> void:
 	if !has_spawned:
 		state_machine.transition_to("Death")
 		move.velocity = Vector2.ZERO
-		take_damage(1)
+		#take_damage(1)
 	# Subtract "life" that's available to the player.
 
-func take_damage(amount):
+func take_damage(amount: int, should_create_corpse: bool):	
 	corpse_lives -= amount
 	
 	if corpse_lives < 0:
 		corpse_lives = 0
 		
+	var has_spawned := state_machine.state.name == "Spawn"
+	if !has_spawned:
+		state_machine.transition_to("Death")
+		move.velocity = Vector2.ZERO
+	
 	emit_signal("corpses_changed", corpse_lives)

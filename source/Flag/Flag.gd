@@ -18,7 +18,8 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	current_level = get_tree().current_scene.name
+	#current_level = get_tree().current_scene.name
+	pass
 
 func _on_body_entered(body: Node) -> void:
 	teleport()
