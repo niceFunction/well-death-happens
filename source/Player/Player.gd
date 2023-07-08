@@ -119,8 +119,9 @@ func take_damage(amount: int, should_create_corpse: bool):
 		corpse_lives = 0
 		
 	var has_spawned := state_machine.state.name == "Spawn"
-	if !has_spawned:
-		state_machine.transition_to("Death")
-		move.velocity = Vector2.ZERO
+	if should_create_corpse:
+		if !has_spawned:
+			state_machine.transition_to("Death")
+			move.velocity = Vector2.ZERO
 	
 	emit_signal("corpses_changed", corpse_lives)
