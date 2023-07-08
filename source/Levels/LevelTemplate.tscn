@@ -99,7 +99,7 @@ position = Vector2( 393, 289 )
 position = Vector2( 777, 289 )
 
 [node name="Fallpit" parent="." instance=ExtResource( 5 )]
-position = Vector2( 585, 363 )
+position = Vector2( 585, 375 )
 scale = Vector2( 2.4, 1 )
 
 [editable path="Player"]

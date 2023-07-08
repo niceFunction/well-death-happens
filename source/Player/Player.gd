@@ -116,5 +116,4 @@ func take_damage(amount: int, should_create_corpse: bool):
 		move.velocity = Vector2.ZERO
 		
 	# Subtract "life" that's available to the player.		
-	
 	emit_signal("corpses_changed", corpse_lives)
