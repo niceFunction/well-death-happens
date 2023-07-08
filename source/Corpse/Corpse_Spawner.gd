@@ -17,10 +17,7 @@ func spawn_corpse(state: String) -> void:
 			#corpses_parent.add_child(created_corpse)
 		"floor":
 			created_corpse.position = global_position
-			#corpses_parent.add_child(created_corpse)
-			#created_corpse.swap_to_static_body()
 		#"vertical spike:"
-		#created_corpse.posistion = global_position
-		#vertical_spike.add_child(created_corpse)
-		#created_corpse.swap_to_static_body()
+			#created_corpse.posistion = global_position
+			#vertical_spike.add_child(created_corpse)
 	emit_signal("created_corpse", created_corpse)
