@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/Sprites/Level/WDH_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://assets/Sprites/Other/Background.png" type="Texture" id=2]
 [ext_resource path="res://source/Levels/Level.gd" type="Script" id=3]
 [ext_resource path="res://source/UI/debug/DebugPanel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/theme/gdquest.theme" type="Theme" id=5]
 [ext_resource path="res://source/UI/Background/Background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://source/Camera/Camera_Rig.tscn" type="PackedScene" id=7]
 [ext_resource path="res://source/GameManager.tscn" type="PackedScene" id=8]
@@ -44,38 +43,6 @@ position = Vector2( 1, 0 )
 [node name="Background_Texture" parent="." instance=ExtResource( 6 )]
 margin_right = 640.0
 margin_bottom = 360.0
-
-[node name="UI" type="CanvasLayer" parent="."]
-layer = 100
-visible = false
-
-[node name="DebugDock" type="MarginContainer" parent="UI"]
-anchor_bottom = 1.0
-margin_right = 440.0
-theme = ExtResource( 5 )
-
-[node name="Column" type="VBoxContainer" parent="UI/DebugDock"]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 424.0
-margin_bottom = 355.0
-
-[node name="DebugPanel" parent="UI/DebugDock/Column" instance=ExtResource( 4 )]
-margin_right = 408.0
-margin_bottom = 196.0
-properties = PoolStringArray( "velocity", "max_speed", "acceleration" )
-
-[node name="DebugPanel2" parent="UI/DebugDock/Column" instance=ExtResource( 4 )]
-margin_top = 204.0
-margin_right = 408.0
-margin_bottom = 332.0
-properties = PoolStringArray( "_state_name" )
-
-[node name="DebugPanel3" parent="UI/DebugDock/Column" instance=ExtResource( 4 )]
-margin_top = 340.0
-margin_right = 408.0
-margin_bottom = 468.0
-properties = PoolStringArray( "current_animation" )
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -100
