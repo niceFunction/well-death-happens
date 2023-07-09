@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 	LifeAmount.text = str(player.corpse_lives)
 	if player.corpse_lives <= 3:
 		corpse_animation_player.play("LowLife")
-	print(player.corpse_lives)
+	#print(player.corpse_lives)
 
 func set_corpse_total(new_corpse_amount: int) -> void:
 	player.corpse_parameters.lives = new_corpse_amount

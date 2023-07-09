@@ -21,3 +21,11 @@ func _on_Player_tree_exiting():
 	player.get_node("Corpse_Spawner").disconnect(
 		"created_corpse", self, "_on_Corpse_Spawner_corpse_spawned"
 	)
+
+func change_to_scene(next_scene, player):
+	player.get_parent().remove_child(player)
+	
+	var scene_instance = next_scene.instance()
+	
+	scene_instance.add_child(player)
+	get_tree().change_scene_to(scene_instance)
