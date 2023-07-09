@@ -23,9 +23,11 @@ func _on_Player_tree_exiting():
 	)
 
 func change_to_scene(next_scene, player):
-	player.get_parent().remove_child(player)
+	var current_scene = player.get_parent()
+	current_scene.remove_child(player)
 	
-	var scene_instance = next_scene.instance()
-	
-	scene_instance.add_child(player)
-	get_tree().change_scene_to(scene_instance)
+	var next_scene_instance = next_scene.instance()
+	next_scene_instance.add_child(player)
+
+	get_tree().get_root().remove_child(current_scene)
+	get_tree().get_root().add_child(next_scene_instance)
