@@ -1,6 +1,8 @@
 tool
 extends Area2D
 
+signal flag_touched
+
 export var next_scene: PackedScene
 
 func _ready() -> void:
@@ -19,4 +21,3 @@ func teleport() -> void:
 	# Reminder: Have some animation here before transitioning to a new level?
 	# use the yield(animation_player, "teleport_animation_finished") to wait before transitioning
 	get_tree().change_scene_to(next_scene)
-
