@@ -23,7 +23,6 @@ script = ExtResource( 8 )
 
 [node name="Debug" type="CanvasLayer" parent="."]
 layer = 100
-visible = false
 
 [node name="DebugPanel" parent="Debug" instance=ExtResource( 3 )]
 margin_right = 117.0
@@ -69,7 +68,7 @@ remote_path = NodePath("../../Camera_Rig")
 
 [node name="Flag" parent="." instance=ExtResource( 7 )]
 position = Vector2( 393, 193 )
-next_scene = ExtResource( 6 )
+next_level = ExtResource( 6 )
 
 [node name="Corpses" type="Node2D" parent="."]
 position = Vector2( 1, 0 )

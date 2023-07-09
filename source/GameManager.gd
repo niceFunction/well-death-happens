@@ -30,11 +30,11 @@ func set_corpse_total(new_corpse_amount: int) -> void:
 	player.corpse_parameters.lives = new_corpse_amount
 	LifeAmount.text = str(player.corpse_parameters.lives)
 
-func change_to_scene(next_scene):
-	player.get_parent().remove_child(player)
+#func change_to_scene(next_scene):
+#	player.get_parent().remove_child(player)
 	
-	var scene_instance = next_scene.instance()
+#	var scene_instance = next_scene.instance()
 	
-	scene_instance.add_child(player)
-	get_tree().get_root().add_child(scene_instance)
-	get_tree().set_current_scene(scene_instance)
+#	scene_instance.add_child(player)
+#	get_tree().get_root().add_child(scene_instance)
+#	get_tree().set_current_scene(scene_instance)
