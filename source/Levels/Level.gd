@@ -22,12 +22,12 @@ func _on_Player_tree_exiting():
 		"created_corpse", self, "_on_Corpse_Spawner_corpse_spawned"
 	)
 
-func change_to_scene(next_scene, player):
+func change_to_level(next_level, player):
 	var current_scene = player.get_parent()
 	current_scene.remove_child(player)
 	
-	var next_scene_instance = next_scene.instance()
-	next_scene_instance.add_child(player)
+	var next_level_instance = next_level.instance()
+	next_level_instance.add_child(player)
 
 	get_tree().get_root().remove_child(current_scene)
-	get_tree().get_root().add_child(next_scene_instance)
+	get_tree().get_root().add_child(next_level_instance)
