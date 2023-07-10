@@ -23,11 +23,13 @@ func _on_Player_tree_exiting():
 	)
 
 func change_to_level(next_level, player):
-	var current_level = player.get_parent()
-	current_level.remove_child(player)
+	var current_level = self
+	current_level.call_deferred("remove_child", player)
 	
 	var next_level_instance = next_level.instance()
-	next_level_instance.add_child(player)
+	next_level_instance.call_deferred("add_child",player)
 
-	get_tree().get_root().remove_child(current_level)
-	get_tree().get_root().add_child(next_level_instance)
+	var main = get_parent()
+	main.call_deferred("remove_child", current_level)
+	main.call_deferred("add_child", next_level_instance)
+
