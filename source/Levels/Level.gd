@@ -8,10 +8,10 @@ func _ready() -> void:
 	_set_player(player)
 
 func _set_player(new_player):
-	if player:
-		player.get_node("Corpse_Spawner").disconnect(
-			"created_corpse", self, "_on_Corpse_Spawner_corpse_spawned"
-		)
+	#if player:
+	#	player.get_node("Corpse_Spawner").disconnect(
+	#		"created_corpse", self, "_on_Corpse_Spawner_corpse_spawned"
+	#	)
 	
 	if new_player != null and new_player.has_node("Corpse_Spawner"):
 		new_player.get_node("Corpse_Spawner").connect(
@@ -29,7 +29,6 @@ func change_to_level(next_level, player):
 	
 	var next_level_instance = next_level.instance()
 	current_level.player = null
-	next_level_instance.player = player
 	next_level_instance.call_deferred("add_child",player)
 
 	var main = get_parent()
