@@ -38,12 +38,12 @@ properties = PoolStringArray( "current_animation" )
 
 [node name="GameManager" parent="." instance=ExtResource( 8 )]
 
-[node name="Corpses" type="Node2D" parent="."]
-position = Vector2( 1, 0 )
-
 [node name="Background_Texture" parent="." instance=ExtResource( 6 )]
 margin_right = 640.0
 margin_bottom = 360.0
+
+[node name="Corpses" type="Node2D" parent="."]
+position = Vector2( 1, 0 )
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="."]
 layer = -100
