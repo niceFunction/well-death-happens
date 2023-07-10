@@ -8,10 +8,10 @@ func _ready() -> void:
 	_set_player(player)
 
 func _set_player(new_player):
-	#if player:
-	#	player.get_node("Corpse_Spawner").disconnect(
-	#		"created_corpse", self, "_on_Corpse_Spawner_corpse_spawned"
-	#	)
+	if player and player.get_node("Corpse_Spawner").is_connected("created_corpse", self, "_on_Corpse_Spawner_corpse_spawned"):
+		player.get_node("Corpse_Spawner").disconnect(
+			"created_corpse", self, "_on_Corpse_Spawner_corpse_spawned"
+		)
 	
 	if new_player != null and new_player.has_node("Corpse_Spawner"):
 		new_player.get_node("Corpse_Spawner").connect(
