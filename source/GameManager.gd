@@ -24,17 +24,10 @@ func _process(delta: float) -> void:
 	LifeAmount.text = str(player.corpse_lives)
 	if player.corpse_lives <= 3:
 		corpse_animation_player.play("LowLife")
-	#print(player.corpse_lives)
+	# In theory, when the "corpse" lives reaches 0, change to "Game Over" scene/level.
+	#elif player.corpse_lives <= 0:
+	#	get_tree().change_scene_to(game_over_scene)
 
 func set_corpse_total(new_corpse_amount: int) -> void:
 	player.corpse_parameters.lives = new_corpse_amount
 	LifeAmount.text = str(player.corpse_parameters.lives)
-
-#func change_to_scene(next_scene):
-#	player.get_parent().remove_child(player)
-	
-#	var scene_instance = next_scene.instance()
-	
-#	scene_instance.add_child(player)
-#	get_tree().get_root().add_child(scene_instance)
-#	get_tree().set_current_scene(scene_instance)

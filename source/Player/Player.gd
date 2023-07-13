@@ -70,8 +70,6 @@ func trigger_animation() -> void:
 	var is_falling = move.velocity.y >= 0.0 and not is_on_floor()
 	var is_jumping = Input.is_action_just_pressed("Jump") and is_on_floor() and move.velocity.y <= 0.00
 	var is_running := is_on_floor() and not is_zero_approx(move.velocity.x)
-	#var has_landed = (code here when the character has landed on the floor).
-	#var is_idling = (code here when the character hasn't moved for a while).
 	var is_standing = move.velocity.x == 0.0
 	# Checks if the current state is "Spawn".
 	var is_spawning = state_machine.state.name == "Spawn"
@@ -93,9 +91,11 @@ func trigger_animation() -> void:
 	# Display in text what the current animation is.
 	current_animation = animation_player.current_animation
 
+# Reduce the Player's "corpse" lives when they die to a hazard.
 func take_damage(amount: int, should_create_corpse: bool):	
 	corpse_lives -= amount
 	
+	# Makes sure that "corpse" lives stay at 0.
 	if corpse_lives < 0:
 		corpse_lives = 0
 	
