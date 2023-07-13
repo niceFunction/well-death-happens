@@ -28,7 +28,7 @@ layer = 100
 margin_right = 117.0
 margin_bottom = 104.0
 reference_path = NodePath("../../Player/StateMachine/Move")
-properties = PoolStringArray( "velocity", "max_speed", "acceleration" )
+properties = PoolStringArray( "velocity" )
 
 [node name="DebugPanel2" parent="Debug" instance=ExtResource( 3 )]
 margin_top = 116.0
@@ -55,9 +55,6 @@ tile_data = PoolIntArray( -1, 8, 0, -65536, 8, 0, -65535, 8, 0, -65534, 8, 0, -6
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 292, 260 )
-
-[node name="Move" parent="Player/StateMachine" index="1"]
-acceleration_default = Vector2( 1500, 1500 )
 
 [node name="Wall" parent="Player/StateMachine/Move" index="1"]
 slide_acceleration = 1000.0

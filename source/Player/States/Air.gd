@@ -8,7 +8,7 @@ export var acceleration_x: = 5000.0
 
 func unhandled_input(event: InputEvent) -> void:
 	var move: = get_parent()
-	
+
 	# Reminder: The Jump Delay might need tweaking
 	# Coyote Jump, the Player can still jump after a small delay.
 	if event.is_action_pressed("Jump"):

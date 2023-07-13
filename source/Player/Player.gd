@@ -7,15 +7,12 @@ class_name Player
 #
 # NOTES #
 # TWEAK THE FOLLOWING: 
-#	Gravity (Move (Y value in "acceleration_default"))
 #	General movement speed (Move (either "max_speed_default" or X value in "acceleration_default"))
 #	Jump height
 #	Jumping on Walls (How far away do you jump from it, how high up do you jump on it)
 #	WALL JUMPING MAY NEED A BETTER FIX!!
 
 # TO BE ADDED:
-#	Death
-#		Corpse are a finite resource, based on a "life" system
 #	Spikes
 #		Static
 #			Corpses that are created on Vertical Spikes, are "attached" to it.
