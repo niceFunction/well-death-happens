@@ -12,9 +12,10 @@ var acceleration: = acceleration_default
 var max_speed: = max_speed_default
 var velocity: = Vector2.ZERO # Used for the "move_and_slide()" method
 
-# Applies different more/less "gravity" going up or down while jumping.
-export(float, -0.5, 2.0) var up_gravity: = 1.02 # Applies less gravity going up.
-export(float, -0.5, 2.0) var down_gravity: = 1.04 # Applies more gravity going down.
+# Gravitity
+var gravity: = 5.0 # Base "gravity".
+export var fall_gravity_multiplier: = 4.0 # Applies MORE gravity when you fall.
+export var up_gravity_multiplier: = 1.5 # Applies LESS gravity when you jump.
 
 # Jumps become shorter depending on how long the Player holds down the "Jump" button.
 var jump_cutoff: = false # Used in the "Air" state script.
@@ -26,16 +27,16 @@ func unhandled_input(event: InputEvent) -> void:
 
 func physics_process(delta: float) -> void:
 	var is_jump_interrupted: = Input.is_action_just_released("Jump") and velocity.y < 0.0
-
+	
 	velocity = calculate_velocity(
 		velocity, 
 		max_speed, 
-		acceleration,
+		acceleration, # We want to change the y of acceleration here
 		is_jump_interrupted, 
 		delta, 
 		get_move_direction())
 	
-	# Applies different "gravities".
+	# While jumping/falling, different "gravities" are applied.
 	apply_gravity()
 	
 	# Moves the Character.
@@ -75,13 +76,14 @@ static func get_move_direction() -> Vector2:
 		1.0
 	)
 
+# This applies "gravity" for now
 func apply_gravity() -> void:
-	# Applies a lower "gravity" when jumping up
-	if velocity.y < 0:
-		velocity.y *= up_gravity
-	# Applies a higher "gravity" when falling down
-	elif velocity.y > 0:
-		velocity.y *= down_gravity
-	# Sets the velocity.y (or "gravity") to "normal".
-	elif owner.is_on_floor():
-		velocity.y = 0.0
+	var apply_up_gravity := gravity * up_gravity_multiplier
+	var apply_down_gravity := gravity * fall_gravity_multiplier
+	
+	if velocity.y < 0.0:
+		# Up along the Y-axis is on the neagative.
+		velocity.y -= apply_up_gravity
+	if velocity.y > 0.0:
+		# Down along the Y-axis is on the positive.
+		velocity.y += apply_down_gravity
