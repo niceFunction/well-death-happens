@@ -1,6 +1,8 @@
+# This script should be applied to EVERY level that needs it.
 extends Node2D
 
-# This script should be applied to EVERY level that needs it.
+export var spawn_point: PackedScene
+
 onready var corpses_parent := $Corpses
 onready var player := $Player setget _set_player
 

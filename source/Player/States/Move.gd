@@ -76,11 +76,13 @@ static func get_move_direction() -> Vector2:
 		1.0
 	)
 
+# apply_gravity could probably serve better inside the "Air" state?
 # This applies "gravity" for now
 func apply_gravity() -> void:
 	var apply_up_gravity := gravity * up_gravity_multiplier
 	var apply_down_gravity := gravity * fall_gravity_multiplier
 	
+	# You could add "_state_machine.state.name == "Air"" for safety?
 	if velocity.y < 0.0:
 		# Up along the Y-axis is on the neagative.
 		velocity.y -= apply_up_gravity
