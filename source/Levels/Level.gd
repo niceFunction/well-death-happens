@@ -1,8 +1,6 @@
 # This script should be applied to EVERY level that needs it.
 extends Node2D
 
-export var spawn_point: PackedScene
-
 onready var corpses_parent := $Corpses
 onready var player := $Player setget _set_player
 
@@ -32,7 +30,8 @@ func change_to_level(next_level, player):
 	var next_level_instance = next_level.instance()
 	current_level.player = null
 	next_level_instance.call_deferred("add_child",player)
-
+	
+	
 	var main = get_parent()
 	main.call_deferred("remove_child", current_level)
 	main.call_deferred("add_child", next_level_instance)
