@@ -4,9 +4,6 @@
 
 [node name="SpawnPoint" type="Position2D"]
 modulate = Color( 1, 1, 1, 0.501961 )
-__meta__ = {
-"_gizmo_extents_": 16.0
-}
 
 [node name="Player_Reference" type="Sprite" parent="."]
 modulate = Color( 0, 0.647059, 1, 1 )
