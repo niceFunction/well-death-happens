@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/Sprites/Level/WDH_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://source/Player/Player.tscn" type="PackedScene" id=2]
@@ -13,13 +13,18 @@
 [ext_resource path="res://source/Shader/CRT_Layer.tscn" type="PackedScene" id=11]
 [ext_resource path="res://source/UI/Background/ParallaxBackground.tscn" type="PackedScene" id=12]
 [ext_resource path="res://source/GameManager.tscn" type="PackedScene" id=13]
+[ext_resource path="res://source/Levels/SpawnPoint.tscn" type="PackedScene" id=14]
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource( 8 )
+spawn_point = NodePath("SpawnPoint")
 
 [node name="GameManager" parent="." instance=ExtResource( 13 )]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 12 )]
+
+[node name="SpawnPoint" parent="." instance=ExtResource( 14 )]
+position = Vector2( 255, 278 )
 
 [node name="Debug" type="CanvasLayer" parent="."]
 layer = 100

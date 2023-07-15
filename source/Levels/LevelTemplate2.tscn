@@ -13,6 +13,7 @@
 
 [node name="LevelTemplate2" type="Node2D"]
 script = ExtResource( 3 )
+spawn_point = NodePath("SpawnPoint")
 
 [node name="Debug" type="CanvasLayer" parent="."]
 layer = 100
@@ -41,10 +42,10 @@ properties = PoolStringArray( "current_animation" )
 margin_right = 640.0
 margin_bottom = 360.0
 
-[node name="GameManager" parent="." instance=ExtResource( 8 )]
-
 [node name="SpawnPoint" parent="." instance=ExtResource( 10 )]
 position = Vector2( 103, 308 )
+
+[node name="GameManager" parent="." instance=ExtResource( 8 )]
 
 [node name="Corpses" type="Node2D" parent="."]
 position = Vector2( 1, 0 )
