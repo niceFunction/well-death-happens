@@ -12,7 +12,7 @@ var acceleration: = acceleration_default
 var max_speed: = max_speed_default
 var velocity: = Vector2.ZERO # Used for the "move_and_slide()" method
 
-# Gravitity
+# Gravity
 var gravity: = 5.0 # Base "gravity".
 export var fall_gravity_multiplier: = 4.0 # Applies MORE gravity when you fall.
 export var up_gravity_multiplier: = 1.5 # Applies LESS gravity when you jump.
