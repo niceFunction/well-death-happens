@@ -14,6 +14,9 @@ func _ready() -> void:
 	print("Spawn Point position: " + str(target_spawn_point.global_position))
 	
 	_set_player(player)
+	
+	# When the player spawns, set it to the "spawn point".
+	player.global_position = target_spawn_point.global_position
 
 func _set_player(new_player):
 	if player and player.get_node("Corpse_Spawner").is_connected("created_corpse", self, "_on_Corpse_Spawner_corpse_spawned"):
@@ -42,7 +45,6 @@ func change_to_level(next_level, player):
 	var main = get_parent()
 	main.call_deferred("remove_child", current_level)
 	main.call_deferred("add_child", next_level_instance)
-	#current_level.player = current_level.target_spawn_point.global_position
 
 # Used to remind the Developer that a SpawnPoint is needed for spawn_point export.
 func _get_configuration_warning() -> String:
