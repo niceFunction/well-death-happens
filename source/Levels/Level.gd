@@ -12,6 +12,8 @@ onready var player := $Player setget _set_player
 func _ready() -> void:
 	#target_spawn_point = get_node(spawn_point)
 	#print("Spawn Point position: " + str(target_spawn_point.global_position))
+	
+	# See further below for needed fix for respawn on death issue.
 	update_spawn_point_position()
 	
 	_set_player(player)
@@ -38,6 +40,7 @@ func change_to_level(next_level, player):
 	
 	var next_level_instance = next_level.instance()
 	current_level.player = null
+	current_level.spawn_point = null
 	next_level_instance.call_deferred("add_child",player)
 
 	var main = get_parent()
@@ -48,6 +51,10 @@ func change_to_level(next_level, player):
 func _get_configuration_warning() -> String:
 	return "spawn_point export needs a SpawnPoint to function!" if not spawn_point else ""
 
+# FIX IS NEEDED
+# This works once for the 1st level, and works when the player first "spawns" into the new level.
+# But it doesn't update to the new spawn_point position & just "saves" the old one.
+# So when you "die" in the "new" level, it respawns the player based on the older spawn point position.
 func update_spawn_point_position() -> void:
 	#print("Spawn Point position is now: " + str(target_spawn_point))
 	target_spawn_point = get_node(spawn_point)
