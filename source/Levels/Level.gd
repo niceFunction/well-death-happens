@@ -61,7 +61,7 @@ func set_first_spawn_position() -> void:
 
 # "Updates" the Player's Spawn Point position when the Player dies.
 func update_spawn_point_position() -> void:
-	target_spawn_point = get_node(spawn_point)
+	#target_spawn_point = get_node(spawn_point) # This one is maybe unneeded?
 	# When the player spawns, set it to the "SpawnPoint"
 	if player.state_machine.state.name == "Spawn":
 		player.global_position = target_spawn_point.global_position
