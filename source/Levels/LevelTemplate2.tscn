@@ -43,7 +43,7 @@ margin_right = 640.0
 margin_bottom = 360.0
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 10 )]
-position = Vector2( 103, 308 )
+position = Vector2( 185, 308 )
 
 [node name="GameManager" parent="." instance=ExtResource( 8 )]
 

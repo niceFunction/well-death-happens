@@ -14,9 +14,11 @@ func _ready() -> void:
 	#print("Spawn Point position: " + str(target_spawn_point.global_position))
 	
 	# See further below for needed fix for respawn on death issue.
-	update_spawn_point_position()
-	
+	set_first_spawn_position()
 	_set_player(player)
+
+func _process(delta: float) -> void:
+	update_spawn_point_position()
 
 func _set_player(new_player):
 	if player and player.get_node("Corpse_Spawner").is_connected("created_corpse", self, "_on_Corpse_Spawner_corpse_spawned"):
@@ -51,13 +53,15 @@ func change_to_level(next_level, player):
 func _get_configuration_warning() -> String:
 	return "spawn_point export needs a SpawnPoint to function!" if not spawn_point else ""
 
-# FIX IS NEEDED
-# This works once for the 1st level, and works when the player first "spawns" into the new level.
-# But it doesn't update to the new spawn_point position & just "saves" the old one.
-# So when you "die" in the "new" level, it respawns the player based on the older spawn point position.
-func update_spawn_point_position() -> void:
-	#print("Spawn Point position is now: " + str(target_spawn_point))
+# Sets the Player's Spawn Point position for the first time.
+func set_first_spawn_position() -> void:
 	target_spawn_point = get_node(spawn_point)
-	# When the player spawns, set it to the "spawn point"
-	player.global_position = target_spawn_point.global_position
 	print("Spawn Point position: " + str(target_spawn_point.global_position))
+	player.global_position = target_spawn_point.global_position
+
+# "Updates" the Player's Spawn Point position when the Player dies.
+func update_spawn_point_position() -> void:
+	target_spawn_point = get_node(spawn_point)
+	# When the player spawns, set it to the "SpawnPoint"
+	if player.state_machine.state.name == "Spawn":
+		player.global_position = target_spawn_point.global_position
