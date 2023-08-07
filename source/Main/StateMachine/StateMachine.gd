@@ -1,7 +1,7 @@
 extends Node
 
 class_name StateMachine, "res://assets/Icons/state_machine.svg"
-
+signal entered_state(state)
 
 export var initial_state: = NodePath()
 
@@ -31,6 +31,7 @@ func transition_to(target_state_path: String, message: Dictionary = {}) -> void:
 	var target_state: = get_node(target_state_path)
 	state.exit()
 	self.state = target_state
+	emit_signal("entered_state", target_state.name)
 	state.enter(message)
 
 func set_state(value: State) -> void:
