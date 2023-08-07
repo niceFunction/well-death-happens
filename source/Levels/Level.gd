@@ -17,16 +17,28 @@ func _set_player(new_player):
 		player.get_node("Corpse_Spawner").disconnect(
 			"created_corpse", self, "_on_Corpse_Spawner_corpse_spawned"
 		)
+		
+		player.get_node("StateMachine").disconnect(
+			"entered_state", self, "_on_StateMachine_entered_state"
+		)
 	
 	if new_player != null and new_player.has_node("Corpse_Spawner"):
 		new_player.get_node("Corpse_Spawner").connect(
 			"created_corpse", self, "_on_Corpse_Spawner_corpse_spawned"
+		)
+		
+		new_player.get_node("StateMachine").connect(
+			"entered_state", self, "_on_StateMachine_entered_state"
 		)
 	
 	player = new_player
 
 func _on_Corpse_Spawner_corpse_spawned(corpse):
 	corpses_parent.add_child(corpse)
+	
+func _on_StateMachine_entered_state(state):
+	if state == "Spawn":
+		player.global_position = get_node(spawn_point).global_position
 
 func change_to_level(next_level, player):
 	var current_level = self
