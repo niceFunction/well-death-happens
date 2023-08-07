@@ -30,16 +30,16 @@ func _on_Corpse_Spawner_corpse_spawned(corpse):
 
 func change_to_level(next_level, player):
 	var current_level = self
-	current_level.call_deferred("remove_child", player)
+	current_level.remove_child(player)
 	
 	var next_level_instance = next_level.instance()
 	current_level.player = null
 	current_level.spawn_point = null
-	next_level_instance.call_deferred("add_child",player)
+	next_level_instance.add_child(player)
 
 	var main = get_parent()
-	main.call_deferred("remove_child", current_level)
-	main.call_deferred("add_child", next_level_instance)
+	main.remove_child(current_level)
+	main.add_child(next_level_instance)
 	
 	player.global_position = next_level_instance.get_node(next_level_instance.spawn_point).global_position
 
