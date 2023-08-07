@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://source/Hazards/Spikes/VerticalSpike.gd" type="Script" id=1]
 [ext_resource path="res://assets/Sprites/Spikes/Vertical_Spike.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1, 1 )
 
 [node name="VerticalSpike" type="Area2D" groups=["VerticalSpike"]]
 script = ExtResource( 1 )
@@ -20,5 +23,11 @@ collision_mask = 17
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( 10, -8 )
 polygon = PoolVector2Array( 4, 1, -8, 7, -10, 7, -10, -7, -8, -7, 4, -1 )
+
+[node name="Tip" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
+position = Vector2( 15, -8 )
+shape = SubResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_player_body_entered"]
