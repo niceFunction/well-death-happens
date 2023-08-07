@@ -35,7 +35,7 @@ func _set_player(new_player):
 
 func _on_Corpse_Spawner_corpse_spawned(corpse):
 	corpses_parent.add_child(corpse)
-	
+
 func _on_StateMachine_entered_state(state):
 	if state == "Spawn":
 		player.global_position = get_node(spawn_point).global_position
@@ -54,6 +54,9 @@ func change_to_level(next_level, player):
 	main.add_child(next_level_instance)
 	
 	player.global_position = next_level_instance.get_node(next_level_instance.spawn_point).global_position
+	
+	$Camera_Rig.current = false
+	next_level_instance.get_node("Camera_Rig").current = true
 
 # Used to remind the Developer that a SpawnPoint is needed for spawn_point export.
 func _get_configuration_warning() -> String:
