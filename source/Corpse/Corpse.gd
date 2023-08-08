@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = min(velocity.y, max_speed.y)
 		
 	var collision_info := move_and_collide(velocity)
-	
+
 	if collision_info:
 		swap_to_static_body()
 
