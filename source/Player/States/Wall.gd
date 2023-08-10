@@ -32,6 +32,7 @@ func physics_process(delta: float) -> void:
 	var is_moving_away_from_wall := sign(move.get_move_direction().x) == sign(_wall_normal)
 	if is_moving_away_from_wall or not owner.wall_detector.is_against_wall():
 		_state_machine.transition_to("Move/Air", {velocity = _velocity})
+	print(owner.can_wall_jump)
 
 func enter(message: Dictionary = {}) -> void:
 	var move = get_parent()
@@ -40,9 +41,14 @@ func enter(message: Dictionary = {}) -> void:
 	_wall_normal = message.normal
 	# Prevent the Character from being able to slide upwards too much.
 	_velocity.y = max(message.velocity.y, -max_slide_speed)
+	owner.can_wall_jump = true # These CAN detect, we just need to disable wall jump somewhere
+	# Maybe encapsulate the content above in an if-statement?
+	#if owner.can_wall_jump = true:
+	# -- do the stuff here --
 	
 func exit() -> void:
 	get_parent().exit()
+	owner.can_wall_jump = false
 
 func jump() -> void:
 	var impulse :=  Vector2(_wall_normal, -1.0) * jump_strength

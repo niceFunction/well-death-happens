@@ -7,7 +7,6 @@
 extents = Vector2( 8, 8 )
 
 [node name="WallBlock" type="StaticBody2D"]
-collision_layer = 0
 script = ExtResource( 2 )
 
 [node name="WallBlockSkin" parent="." instance=ExtResource( 1 )]

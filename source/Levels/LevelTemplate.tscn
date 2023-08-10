@@ -29,7 +29,6 @@ position = Vector2( 125, 278 )
 
 [node name="Debug" type="CanvasLayer" parent="."]
 layer = 100
-visible = false
 
 [node name="DebugPanel" parent="Debug" instance=ExtResource( 3 )]
 margin_right = 117.0

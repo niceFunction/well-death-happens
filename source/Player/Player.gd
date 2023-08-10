@@ -45,6 +45,8 @@ onready var collider: CollisionShape2D = $CollisionShape2D
 onready var wall_detector: WallDetector = $WallDetector
 onready var floor_detector: FloorDetector = $FloorDetector
 
+onready var can_wall_jump := false
+
 # Variables used for playing animations.
 onready var skin: Node2D = $PlayerSkin
 onready var animation_player: AnimationPlayer = $PlayerSkin/AnimationPlayer
