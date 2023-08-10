@@ -92,6 +92,7 @@ drag_margin_right = 0.5
 drag_margin_bottom = 0.69
 
 [node name="CRT_Layer" parent="." instance=ExtResource( 11 )]
+visible = false
 
 [node name="VerticalSpike" parent="." instance=ExtResource( 9 )]
 position = Vector2( 49, 257 )
@@ -124,5 +125,14 @@ position = Vector2( 697, 234 )
 
 [node name="WallBlock4" parent="." instance=ExtResource( 15 )]
 position = Vector2( 697, 218 )
+
+[node name="WallBlock5" parent="." instance=ExtResource( 15 )]
+position = Vector2( 697, 202 )
+
+[node name="WallBlock6" parent="." instance=ExtResource( 15 )]
+position = Vector2( 697, 186 )
+
+[node name="WallBlock7" parent="." instance=ExtResource( 15 )]
+position = Vector2( 697, 170 )
 
 [editable path="Player"]

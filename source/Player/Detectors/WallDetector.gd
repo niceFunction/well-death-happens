@@ -1,4 +1,5 @@
 class_name WallDetector
+
 extends Position2D
 
 onready var ray_bottom: RayCast2D = $RayBottom
