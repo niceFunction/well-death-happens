@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/Sprites/Level/WDH_Tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://source/Player/Player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://source/UI/Background/ParallaxBackground.tscn" type="PackedScene" id=12]
 [ext_resource path="res://source/GameManager.tscn" type="PackedScene" id=13]
 [ext_resource path="res://source/Levels/SpawnPoint.tscn" type="PackedScene" id=14]
+[ext_resource path="res://source/Other/WallBlock/WallBlock.tscn" type="PackedScene" id=15]
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource( 8 )
@@ -111,5 +112,17 @@ position = Vector2( 553, 289 )
 [node name="VerticalSpike2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 833, 193 )
 scale = Vector2( -1, 1 )
+
+[node name="WallBlock" parent="." instance=ExtResource( 15 )]
+position = Vector2( 697, 266 )
+
+[node name="WallBlock2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 697, 250 )
+
+[node name="WallBlock3" parent="." instance=ExtResource( 15 )]
+position = Vector2( 697, 234 )
+
+[node name="WallBlock4" parent="." instance=ExtResource( 15 )]
+position = Vector2( 697, 218 )
 
 [editable path="Player"]
