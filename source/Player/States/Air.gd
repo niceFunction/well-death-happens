@@ -14,7 +14,6 @@ func unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Jump"):
 		emit_signal("jumped")
 		# If the Player "jumps" before 0, jump.
-		owner.can_wall_jump = false
 		if move.velocity.y >= 0.0 and jump_delay.time_left > 0.0:
 			move.velocity = calculate_jump_velocity(move.jump_impulse)
 		else:

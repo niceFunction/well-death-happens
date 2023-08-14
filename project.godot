@@ -147,6 +147,7 @@ Spawn={
 2d_physics/layer_4="Death"
 2d_physics/layer_5="Corpse"
 2d_physics/layer_6="Hazard"
+2d_physics/layer_7="WallBlock"
 
 [physics]
 
