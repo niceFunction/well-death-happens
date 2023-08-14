@@ -51,6 +51,16 @@ func exit() -> void:
 
 func jump() -> void:
 	var impulse :=  Vector2(_wall_normal, -1.0) * jump_strength
+	
+	owner.move_and_slide(Vector2(-_wall_normal, 0), owner.FLOOR_NORMAL)
+	var collision = owner.get_last_slide_collision()
+
+	if collision:
+		var collider = collision.collider
+		
+		if "can_wall_jump" in collider and collider.can_wall_jump == false:
+			return
+	
 	var message := {
 		velocity = impulse,
 		wall_jump = true
