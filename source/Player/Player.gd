@@ -104,13 +104,11 @@ func take_damage(amount: int, should_create_corpse: bool):
 	# Player has died from some form of Spike, create a Corpse.
 	var has_spawned := state_machine.state.name == "Spawn"
 	if should_create_corpse:
-		# Has been in: func _has_died(_body: Node) -> void:
 		if !has_spawned:
 			state_machine.transition_to("Death")
 			move.velocity = Vector2.ZERO
 	# Player has instead died from a "hole", don't create a Corpse.
 	elif !should_create_corpse:
-		# Has been in: func _fell_into_pit(_body: Node) -> void:
 		state_machine.transition_to("Spawn")
 		move.velocity = Vector2.ZERO
 		
