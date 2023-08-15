@@ -25,6 +25,7 @@ func exit() -> void:
 	owner.is_active = true
 	owner.skin.disconnect("animation_finished", self, "_on_Player_animation_finished")
 
+# Depending on if the Player dies on the Floor or not, the Corpse are either created in the air or the floor.
 func corpse_creation() -> void:
 	if not owner.is_on_floor():
 		handle_death_in_air()

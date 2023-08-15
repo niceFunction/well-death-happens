@@ -12,19 +12,6 @@ class_name Player
 #	Jumping on Walls (How far away do you jump from it, how high up do you jump on it)
 #	WALL JUMPING MAY NEED A BETTER FIX!!
 
-# TO BE ADDED:
-#	Spikes
-#		Static
-#			Corpses that are created on Vertical Spikes, are "attached" to it.
-#				Bonus: Player can wall jump on Corpse
-#				READ THIS: Have an object in the level that has references to Vertical Spike
-#				& the Corpse, then from this object, child the Corpse to Vertical
-#				Spike.
-#		Animated
-#			First, has Raycasts that checks if a "Corpse" are on top of this Spike:
-#				if there is a "Corpse", stop animating & disable collisions.
-#				if there ISN'T a "Corpse" continue animation
-
 const FLOOR_NORMAL: = Vector2.UP
 
 signal corpses_changed(new_corpses)
@@ -95,6 +82,13 @@ func trigger_animation() -> void:
 
 # Reduce the Player's "corpse" lives when they die to a hazard.
 func take_damage(amount: int, should_create_corpse: bool):	
+	
+	# Had an error where 2 Corpses where created if the Player fell on 2 Spikes at once.
+	# Doing this seems to solve it for now.
+	if state_machine.state.name == "Death" or state_machine.state.name == "Spawn":
+		return
+	
+	# Take the Amount of "Corpse Lives" & reduce it by the Amount (by 1)
 	corpse_lives -= amount
 	
 	# Makes sure that "corpse" lives stay at 0.
@@ -107,6 +101,7 @@ func take_damage(amount: int, should_create_corpse: bool):
 		if !has_spawned:
 			state_machine.transition_to("Death")
 			move.velocity = Vector2.ZERO
+	
 	# Player has instead died from a "hole", don't create a Corpse.
 	elif !should_create_corpse:
 		state_machine.transition_to("Spawn")

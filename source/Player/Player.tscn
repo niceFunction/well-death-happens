@@ -43,7 +43,6 @@ script = ExtResource( 12 )
 
 [node name="Move" type="Node" parent="StateMachine"]
 script = ExtResource( 5 )
-down_gravity = 1.06
 
 [node name="Idle" type="Node" parent="StateMachine/Move"]
 script = ExtResource( 3 )

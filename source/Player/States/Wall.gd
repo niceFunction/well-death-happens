@@ -40,10 +40,6 @@ func enter(message: Dictionary = {}) -> void:
 	_wall_normal = message.normal
 	# Prevent the Character from being able to slide upwards too much.
 	_velocity.y = max(message.velocity.y, -max_slide_speed)
-	owner.can_wall_jump = true # These CAN detect, we just need to disable wall jump somewhere
-	# Maybe encapsulate the content above in an if-statement?
-	#if owner.can_wall_jump = true:
-	# -- do the stuff here --
 	
 func exit() -> void:
 	get_parent().exit()
