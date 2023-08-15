@@ -28,11 +28,6 @@ func exit() -> void:
 func corpse_creation() -> void:
 	if not owner.is_on_floor():
 		handle_death_in_air()
-	# the following statement should be something like this maybe?
-	# get vertical spike body somehow
-	# Or use signals?
-	#elif owner died to spike:
-	#	handle_death_on_vertical_spike()
 	else:
 		handle_death_on_floor()
 
