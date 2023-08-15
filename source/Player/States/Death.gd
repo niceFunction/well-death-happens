@@ -42,7 +42,3 @@ func handle_death_in_air() -> void:
 
 func handle_death_on_floor() -> void:
 	owner.corpse_spawner.spawn_corpse("floor")
-
-#func handle_death_on_vertical_spike() -> void:
-#	owner.corpse_spawner.spawn_corpse("vertical spike")
-#	print("In: handle death on vertical spikes")
