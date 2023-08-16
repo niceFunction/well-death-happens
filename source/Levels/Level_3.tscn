@@ -10,7 +10,7 @@
 [ext_resource path="res://source/Flag/Flag.tscn" type="PackedScene" id=8]
 [ext_resource path="res://source/Other/InfoBoard/InfoBoard.tscn" type="PackedScene" id=9]
 [ext_resource path="res://source/Other/WallBlock/WallBlock.tscn" type="PackedScene" id=10]
-[ext_resource path="res://source/Levels/LevelTemplate3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://source/Levels/Level_4.tscn" type="PackedScene" id=11]
 [ext_resource path="res://source/Levels/Level.gd" type="Script" id=12]
 
 [node name="Level_3" type="Node2D"]
@@ -42,7 +42,6 @@ limit_right = 1348
 limit_bottom = 360
 
 [node name="CRT_Layer" parent="." instance=ExtResource( 1 )]
-visible = false
 
 [node name="Spikes" type="Node2D" parent="."]
 position = Vector2( 392, 304 )

@@ -47,7 +47,6 @@ drag_margin_right = 0.4
 drag_margin_bottom = 0.9
 
 [node name="CRT_Layer" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [node name="Flag" parent="." instance=ExtResource( 8 )]
 position = Vector2( 929, -32 )

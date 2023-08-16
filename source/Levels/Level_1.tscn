@@ -61,7 +61,6 @@ drag_margin_right = 0.58
 drag_margin_bottom = 0.83
 
 [node name="CRT_Layer" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [node name="InfoBoard" parent="." instance=ExtResource( 9 )]
 position = Vector2( 152, 304 )
