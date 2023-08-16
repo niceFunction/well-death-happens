@@ -9,7 +9,6 @@ onready var corpses_parent := $Corpses
 onready var player := $Player setget _set_player
 
 func _ready() -> void:
-	# See further below for needed fix for respawn on death issue.
 	_set_player(player)
 
 func _set_player(new_player):
