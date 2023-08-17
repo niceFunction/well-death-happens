@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://source/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://source/Camera/Camera_Rig.tscn" type="PackedScene" id=2]
@@ -11,16 +11,20 @@
 [ext_resource path="res://source/Other/InfoBoard/InfoBoard.tscn" type="PackedScene" id=9]
 [ext_resource path="res://source/Levels/Level_2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://source/Levels/SpawnPoint.tscn" type="PackedScene" id=11]
-[ext_resource path="res://source/Other/InfoBoard/Tutorial_Board.tscn" type="PackedScene" id=12]
+[ext_resource path="res://source/Other/InfoBoard/Level 1/How_to_Move.tscn" type="PackedScene" id=12]
+[ext_resource path="res://source/Other/InfoBoard/Level 1/HowToJump.tscn" type="PackedScene" id=13]
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource( 8 )
 spawn_point = NodePath("SpawnPoint")
 
-[node name="Tutorial_Board" parent="." instance=ExtResource( 12 )]
+[node name="GameManager" parent="." instance=ExtResource( 4 )]
+
+[node name="How_to_Move" parent="." instance=ExtResource( 12 )]
 visible = false
 
-[node name="GameManager" parent="." instance=ExtResource( 4 )]
+[node name="How_to_Jump" parent="." instance=ExtResource( 13 )]
+visible = false
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 6 )]
 
@@ -68,6 +72,10 @@ drag_margin_bottom = 0.83
 
 [node name="InfoBoard" parent="." instance=ExtResource( 9 )]
 position = Vector2( 152, 304 )
-tutorial_board = NodePath("../Tutorial_Board")
+tutorial_board = NodePath("../How_to_Move")
+
+[node name="InfoBoard2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 392, 304 )
+tutorial_board = NodePath("../How_to_Jump")
 
 [editable path="Player"]

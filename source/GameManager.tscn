@@ -79,7 +79,6 @@ script = ExtResource( 1 )
 game_over_scene = ExtResource( 6 )
 
 [node name="CorpseUI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CorpseUI"]
 root_node = NodePath("../..")
