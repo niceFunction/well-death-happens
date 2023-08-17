@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://source/Other/InfoBoard/InfoBoard_BG_Material.tres" type="Material" id=1]
+[ext_resource path="res://assets/Sprites/Tutorial/HowToWallJump_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/WDH Theme/WDH_theme.tres" type="Theme" id=3]
+[ext_resource path="res://source/Other/InfoBoard/Level 2/How_to_WallJump2.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "HowToWallJump2"
+length = 1.47
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Image_Skin/HowToWallJump2_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49, 0.56, 0.63, 0.7, 0.77, 0.84, 0.91, 0.98, 1.05, 1.12, 1.19, 1.26, 1.33, 1.4, 1.47 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "instructions"
+length = 3.0
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/instructions:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ "Some Walls", "can't be", "Wall Jumped" ]
+}
+
+[node name="How_to_WallJump2" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="Blur Background" type="ColorRect" parent="."]
+material = ExtResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Image_Skin" type="PanelContainer" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 70.0
+margin_top = 8.0
+margin_right = 570.0
+margin_bottom = 308.0
+
+[node name="HowToWallJump2_Sprite" type="Sprite" parent="Image_Skin"]
+texture = ExtResource( 2 )
+centered = false
+hframes = 22
+frame = 21
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/HowToWallJump2 = SubResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -50.0
+theme = ExtResource( 3 )
+
+[node name="instructions" type="Label" parent="CenterContainer"]
+margin_left = 248.0
+margin_top = 13.0
+margin_right = 392.0
+margin_bottom = 36.0
+text = "can't be"
+
+[node name="Label_AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/instructions = SubResource( 2 )

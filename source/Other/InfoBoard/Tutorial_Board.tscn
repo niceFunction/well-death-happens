@@ -25,6 +25,9 @@ margin_right = 507.0
 margin_bottom = 307.0
 texture = ExtResource( 2 )
 
+[node name="Sprite" type="Sprite" parent="Image_Skin"]
+centered = false
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
