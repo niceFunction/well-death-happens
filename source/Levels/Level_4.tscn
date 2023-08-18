@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://source/Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://source/Camera/Camera_Rig.tscn" type="PackedScene" id=2]
@@ -12,12 +12,15 @@
 [ext_resource path="res://source/Other/WallBlock/WallBlock.tscn" type="PackedScene" id=10]
 [ext_resource path="res://source/Levels/LevelTemplate3.tscn" type="PackedScene" id=11]
 [ext_resource path="res://source/Hazards/Spikes/VerticalSpike.tscn" type="PackedScene" id=12]
+[ext_resource path="res://source/Other/InfoBoard/Level 4/How_to_WallDeath.tscn" type="PackedScene" id=13]
 
 [node name="Level_2" type="Node2D"]
 script = ExtResource( 1 )
 spawn_point = NodePath("SpawnPoint")
 
 [node name="GameManager" parent="." instance=ExtResource( 4 )]
+
+[node name="How_to_WallDeath" parent="." instance=ExtResource( 13 )]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 5 )]
 
@@ -55,6 +58,7 @@ next_level = ExtResource( 11 )
 
 [node name="InfoBoard" parent="." instance=ExtResource( 9 )]
 position = Vector2( 417, 319 )
+tutorial_board = NodePath("../How_to_WallDeath")
 
 [node name="WallBlocks" type="Node2D" parent="."]
 
