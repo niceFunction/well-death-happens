@@ -90,6 +90,6 @@ tutorial_board = NodePath("../How_to_Jump")
 position = Vector2( 776, 272 )
 tutorial_board = NodePath("../How_to_Flag")
 
-[connection signal="transition_out" from="Flag" to="Transition" method="_on_Flag_transition_out"]
+[connection signal="player_collided" from="Flag" to="Transition" method="_on_Flag_player_collided"]
 
 [editable path="Player"]
