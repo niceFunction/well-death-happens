@@ -25,6 +25,7 @@ spawn_point = NodePath("SpawnPoint")
 [node name="ParallaxBackground" parent="." instance=ExtResource( 5 )]
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 7 )]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 121, 311 )
 
 [node name="TileMap" type="TileMap" parent="."]

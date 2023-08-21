@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://source/Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://source/Camera/Camera_Rig.tscn" type="PackedScene" id=2]
@@ -13,12 +13,15 @@
 [ext_resource path="res://source/Levels/Level_3.tscn" type="PackedScene" id=11]
 [ext_resource path="res://source/Other/InfoBoard/Level 2/How_to_WallJump.tscn" type="PackedScene" id=12]
 [ext_resource path="res://source/Other/InfoBoard/Level 2/How_to_WallJump2.tscn" type="PackedScene" id=13]
+[ext_resource path="res://source/UI/Transition/Transition.tscn" type="PackedScene" id=14]
 
 [node name="Level_2" type="Node2D"]
 script = ExtResource( 1 )
 spawn_point = NodePath("SpawnPoint")
 
 [node name="GameManager" parent="." instance=ExtResource( 4 )]
+
+[node name="Transition" parent="." instance=ExtResource( 14 )]
 
 [node name="How_to_WallJump" parent="." instance=ExtResource( 12 )]
 visible = false

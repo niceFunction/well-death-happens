@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:	
 	get_parent().call_deferred("change_to_level", next_level, body)
-
+	emit_signal("player_collided")
 
 func _get_configuration_warning() -> String:
 	return "next_level needs a Scene/Level to function!" if not next_level else ""
