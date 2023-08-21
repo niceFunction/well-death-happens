@@ -10,10 +10,7 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	if player_has_collided == true:
-		transition_out_of_level()
-	elif player_has_collided == false:
-		transition_into_level()
+	pass
 
 func transition_into_level():
 	#animation_player.connect("animation_finished", self, "transition_into_level")
@@ -25,7 +22,7 @@ func transition_out_of_level():
 
 
 func _on_Flag_player_collided() -> void:
-	player_has_collided = true
+	transition_out_of_level()
 	#if !player_has_collided:
 	#	print("banana")
 	#print(player_has_collided)
