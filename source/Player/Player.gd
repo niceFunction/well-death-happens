@@ -38,8 +38,8 @@ onready var can_wall_jump := false
 onready var skin: Node2D = $PlayerSkin
 onready var animation_player: AnimationPlayer = $PlayerSkin/AnimationPlayer
 onready var start_scale: Vector2 = skin.scale
-# What animation is currently playing?
-onready var current_animation: String = ""
+# For DEBUG: What animation is currently playing?
+onready var current_animation: String = "" # <-- Can be removed in the future
 
 # Triggering the Corpses to spawn should probably be moved to a Death state or something.
 onready var corpse_spawner := $Corpse_Spawner 
