@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://source/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://source/Camera/Camera_Rig.tscn" type="PackedScene" id=2]
@@ -14,10 +14,13 @@
 [ext_resource path="res://source/Other/InfoBoard/Level 1/How_to_Move.tscn" type="PackedScene" id=12]
 [ext_resource path="res://source/Other/InfoBoard/Level 1/How_to_Jump.tscn" type="PackedScene" id=13]
 [ext_resource path="res://source/Other/InfoBoard/Level 1/How_to_Flag.tscn" type="PackedScene" id=14]
+[ext_resource path="res://source/UI/Transition/Transition.tscn" type="PackedScene" id=15]
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource( 8 )
 spawn_point = NodePath("SpawnPoint")
+
+[node name="Transition" parent="." instance=ExtResource( 15 )]
 
 [node name="GameManager" parent="." instance=ExtResource( 4 )]
 

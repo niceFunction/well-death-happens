@@ -116,6 +116,7 @@ tracks/1/keys = {
 }
 
 [node name="Transition" type="CanvasLayer"]
+layer = 2
 
 [node name="Transition_Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
