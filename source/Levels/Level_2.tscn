@@ -184,3 +184,8 @@ position = Vector2( 88, 263 )
 
 [node name="WallBlock37" parent="WallBlocks" instance=ExtResource( 10 )]
 position = Vector2( 88, 311 )
+
+[connection signal="animation_finished" from="Transition/AnimationPlayer" to="." method="_on_Level2_animation_finished"]
+[connection signal="player_collided" from="Flag" to="." method="_on_Level2_player_collided"]
+
+[editable path="Transition"]

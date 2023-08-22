@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://source/Levels/Level.gd" type="Script" id=1]
 [ext_resource path="res://source/Camera/Camera_Rig.tscn" type="PackedScene" id=2]
@@ -13,12 +13,15 @@
 [ext_resource path="res://source/Levels/LevelTemplate3.tscn" type="PackedScene" id=11]
 [ext_resource path="res://source/Hazards/Spikes/VerticalSpike.tscn" type="PackedScene" id=12]
 [ext_resource path="res://source/Other/InfoBoard/Level 4/How_to_WallDeath.tscn" type="PackedScene" id=13]
+[ext_resource path="res://source/UI/Transition/Transition.tscn" type="PackedScene" id=14]
 
-[node name="Level_2" type="Node2D"]
+[node name="Level_4" type="Node2D"]
 script = ExtResource( 1 )
 spawn_point = NodePath("SpawnPoint")
 
 [node name="GameManager" parent="." instance=ExtResource( 4 )]
+
+[node name="Transition" parent="." instance=ExtResource( 14 )]
 
 [node name="How_to_WallDeath" parent="." instance=ExtResource( 13 )]
 
@@ -209,3 +212,8 @@ scale = Vector2( 1, -1 )
 
 [node name="VerticalSpike2" parent="Spikes" instance=ExtResource( 12 )]
 position = Vector2( 448, 207 )
+
+[connection signal="animation_finished" from="Transition/AnimationPlayer" to="." method="_on_Level4_animation_finished"]
+[connection signal="player_collided" from="Flag" to="." method="_on_Level4_player_collided"]
+
+[editable path="Transition"]

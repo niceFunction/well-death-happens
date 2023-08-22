@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://source/Shader/CRT_Layer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://source/Camera/Camera_Rig.tscn" type="PackedScene" id=2]
@@ -14,12 +14,15 @@
 [ext_resource path="res://source/Levels/Level.gd" type="Script" id=12]
 [ext_resource path="res://source/Other/InfoBoard/Level 3/How_to_Die.tscn" type="PackedScene" id=13]
 [ext_resource path="res://source/Other/InfoBoard/Level 3/How_to_Die2.tscn" type="PackedScene" id=14]
+[ext_resource path="res://source/UI/Transition/Transition.tscn" type="PackedScene" id=15]
 
 [node name="Level_3" type="Node2D"]
 script = ExtResource( 12 )
 spawn_point = NodePath("SpawnPoint")
 
 [node name="GameManager" parent="." instance=ExtResource( 3 )]
+
+[node name="Transition" parent="." instance=ExtResource( 15 )]
 
 [node name="How_to_Die" parent="." instance=ExtResource( 13 )]
 visible = false
@@ -292,3 +295,8 @@ position = Vector2( 1608, 120 )
 
 [node name="WallBlock30" parent="WallBlocks" instance=ExtResource( 10 )]
 position = Vector2( 1608, 104 )
+
+[connection signal="animation_finished" from="Transition/AnimationPlayer" to="." method="_on_Level3_animation_finished"]
+[connection signal="player_collided" from="Flag" to="." method="_on_Level3_player_collided"]
+
+[editable path="Transition"]

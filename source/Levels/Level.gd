@@ -12,6 +12,9 @@ onready var transition = $Transition
 onready var flag = $Flag
 
 func _ready() -> void:
+	# Line Below: WILL CRASH if the next scene doesn't have a Transition object
+	# And the animation isn't called.
+	transition.transition_into_level()
 	_set_player(player)
 
 func _set_player(new_player):
@@ -65,11 +68,42 @@ func change_to_level(next_level, player):
 func _get_configuration_warning() -> String:
 	return "spawn_point export needs a SpawnPoint to function!" if not spawn_point else ""
 
+# The following functions triggers Transitions to the next level
+# Currently, EACH new level needs the exact same setup
 
-func _on_Flag_player_collided() -> void:
+# LEVEL 1
+func _on_Level1_player_collided() -> void:
 	transition.transition_out_of_level()
 
-func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
-	#get_parent().call_deferred("change_to_level", next_level, body)
-	change_to_level(flag.next_level, player)
-	
+# Changes to Level 2
+func _on_Level1_animation_finished(anim_name: String) -> void:
+	if anim_name == "transition_out_of_level":
+		change_to_level(flag.next_level, player)
+	#transition.transition_into_level()
+
+# LEVEL 2
+func _on_Level2_player_collided() -> void:
+	transition.transition_out_of_level()
+
+# Changes to Level 3
+func _on_Level2_animation_finished(anim_name: String) -> void:
+	if anim_name == "transition_out_of_level":
+		change_to_level(flag.next_level, player)
+
+# LEVEL 3
+func _on_Level3_player_collided() -> void:
+	transition.transition_out_of_level()
+
+# Changes to Level 4
+func _on_Level3_animation_finished(anim_name: String) -> void:
+	if anim_name == "transition_out_of_level":
+		change_to_level(flag.next_level, player)
+
+# LEVEL 4
+func _on_Level4_player_collided() -> void:
+	transition.transition_out_of_level()
+
+
+func _on_Level4_animation_finished(anim_name: String) -> void:
+	if anim_name == "transition_out_of_level":
+		change_to_level(flag.next_level, player)
