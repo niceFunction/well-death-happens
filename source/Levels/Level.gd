@@ -8,6 +8,8 @@ export (NodePath) var spawn_point = null # Remember to turn off visibility on Sp
 onready var corpses_parent := $Corpses
 onready var player := $Player setget _set_player
 
+onready var transition = $Transition
+
 func _ready() -> void:
 	_set_player(player)
 
@@ -64,4 +66,5 @@ func _get_configuration_warning() -> String:
 
 
 func _on_Flag_player_collided() -> void:
-	pass # Replace with function body.
+	print("banana")
+	transition.transition_out_of_level()
