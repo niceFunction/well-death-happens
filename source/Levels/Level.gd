@@ -9,6 +9,7 @@ onready var corpses_parent := $Corpses
 onready var player := $Player setget _set_player
 
 onready var transition = $Transition
+onready var flag = $Flag
 
 func _ready() -> void:
 	_set_player(player)
@@ -48,7 +49,7 @@ func change_to_level(next_level, player):
 	var next_level_instance = next_level.instance()
 	current_level.player = null
 	current_level.spawn_point = null
-	next_level_instance.add_child(player) # Add the Player to the Nex Level
+	next_level_instance.add_child(player) # Add the Player to the Next Level
 
 	var main = get_parent()
 	main.remove_child(current_level) # Remove the "old" current level
@@ -66,5 +67,9 @@ func _get_configuration_warning() -> String:
 
 
 func _on_Flag_player_collided() -> void:
-	print("banana")
 	transition.transition_out_of_level()
+
+func _on_AnimationPlayer_animation_finished(anim_name: String) -> void:
+	#get_parent().call_deferred("change_to_level", next_level, body)
+	change_to_level(flag.next_level, player)
+	

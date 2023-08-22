@@ -21,7 +21,6 @@ script = ExtResource( 8 )
 spawn_point = NodePath("SpawnPoint")
 
 [node name="Transition" parent="." instance=ExtResource( 15 )]
-visible = false
 
 [node name="GameManager" parent="." instance=ExtResource( 4 )]
 
@@ -91,6 +90,8 @@ tutorial_board = NodePath("../How_to_Jump")
 position = Vector2( 776, 272 )
 tutorial_board = NodePath("../How_to_Flag")
 
+[connection signal="animation_finished" from="Transition/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="player_collided" from="Flag" to="." method="_on_Flag_player_collided"]
 
+[editable path="Transition"]
 [editable path="Player"]

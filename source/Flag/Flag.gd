@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_body_entered(body: Node) -> void:	
-	get_parent().call_deferred("change_to_level", next_level, body)
+	#get_parent().call_deferred("change_to_level", next_level, body)
 	emit_signal("player_collided")
 
 func _get_configuration_warning() -> String:
