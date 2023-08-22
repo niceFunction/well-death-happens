@@ -61,3 +61,7 @@ func change_to_level(next_level, player):
 # Used to remind the Developer that a SpawnPoint is needed for spawn_point export.
 func _get_configuration_warning() -> String:
 	return "spawn_point export needs a SpawnPoint to function!" if not spawn_point else ""
+
+
+func _on_Flag_player_collided() -> void:
+	pass # Replace with function body.
