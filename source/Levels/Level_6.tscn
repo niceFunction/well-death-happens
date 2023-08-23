@@ -11,7 +11,7 @@
 [ext_resource path="res://source/Hazards/Spikes/VerticalSpike.tscn" type="PackedScene" id=9]
 [ext_resource path="res://source/Other/WallBlock/WallBlock.tscn" type="PackedScene" id=10]
 [ext_resource path="res://source/Levels/SpawnPoint.tscn" type="PackedScene" id=11]
-[ext_resource path="res://source/Levels/Templates/LevelTemplate3.tscn" type="PackedScene" id=12]
+[ext_resource path="res://source/Levels/Level_7.tscn" type="PackedScene" id=12]
 [ext_resource path="res://source/UI/Transition/Transition.tscn" type="PackedScene" id=15]
 
 [node name="Level_6" type="Node2D"]
@@ -25,7 +25,7 @@ spawn_point = NodePath("SpawnPoint")
 [node name="ParallaxBackground" parent="." instance=ExtResource( 6 )]
 
 [node name="SpawnPoint" parent="." instance=ExtResource( 11 )]
-modulate = Color( 1, 1, 1, 0.313726 )
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 72, 276 )
 
 [node name="TileMap" type="TileMap" parent="."]

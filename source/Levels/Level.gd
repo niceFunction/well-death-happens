@@ -75,29 +75,25 @@ func _get_configuration_warning() -> String:
 func _on_Level1_player_collided() -> void:
 	transition.transition_out_of_level()
 
-# Changes to Level 2
 func _on_Level1_animation_finished(anim_name: String) -> void:
 	if anim_name == "transition_out_of_level":
-		change_to_level(flag.next_level, player)
-	#transition.transition_into_level()
+		change_to_level(flag.next_level, player) # Changes to Level 2
 
 # LEVEL 2
 func _on_Level2_player_collided() -> void:
 	transition.transition_out_of_level()
 
-# Changes to Level 3
 func _on_Level2_animation_finished(anim_name: String) -> void:
 	if anim_name == "transition_out_of_level":
-		change_to_level(flag.next_level, player)
+		change_to_level(flag.next_level, player) # Changes to Level 3
 
 # LEVEL 3
 func _on_Level3_player_collided() -> void:
 	transition.transition_out_of_level()
 
-# Changes to Level 4
 func _on_Level3_animation_finished(anim_name: String) -> void:
 	if anim_name == "transition_out_of_level":
-		change_to_level(flag.next_level, player)
+		change_to_level(flag.next_level, player) # Changes to Level 4
 
 # LEVEL 4
 func _on_Level4_player_collided() -> void:
@@ -111,16 +107,30 @@ func _on_Level4_animation_finished(anim_name: String) -> void:
 func _on_Level5_player_collided() -> void:
 	transition.transition_out_of_level()
 
-# Changes to Level 6
 func _on_Level5_animation_finished(anim_name: String) -> void:
 	if anim_name == "transition_out_of_level":
-		change_to_level(flag.next_level, player)
+		change_to_level(flag.next_level, player) # Changes to Level 6
 
 # LEVEL 6
 func _on_Level6_player_collided() -> void:
 	transition.transition_out_of_level()
 
-# Changes to Level 7
 func _on_Level6_animation_finished(anim_name: String) -> void:
 	if anim_name == "transition_out_of_level":
-		change_to_level(flag.next_level, player)
+		change_to_level(flag.next_level, player) # Changes to Level 7
+
+# LEVEL 7
+func _on_Level7_player_collided() -> void:
+	transition.transition_out_of_level()
+
+func _on_Level7_animation_finished(anim_name: String) -> void:
+	if anim_name == "transition_out_of_level":
+		change_to_level(flag.next_level, player) # Changes to Level 8
+
+# LEVEL 8
+func _on_Level8_player_collided() -> void:
+	transition.transition_out_of_level()
+
+func _on_Level8_animation_finished(anim_name: String) -> void:
+	if anim_name == "transition_out_of_level":
+		change_to_level(flag.next_level, player) # Changes to Level 9
