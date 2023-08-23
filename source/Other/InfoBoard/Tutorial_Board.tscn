@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/WDH Theme/WDH_theme.tres" type="Theme" id=3]
 [ext_resource path="res://assets/Sprites/Tutorial/Tutorial_Frame.png" type="Texture" id=4]
 
-[node name="Tutorial_Board" type="CanvasLayer"]
+[node name="How_to_Fallpit" type="CanvasLayer"]
 
 [node name="Blur Background" type="ColorRect" parent="."]
 material = ExtResource( 1 )
@@ -36,6 +36,8 @@ margin_top = 7.0
 margin_right = 507.0
 margin_bottom = 307.0
 texture = ExtResource( 4 )
+expand = true
+stretch_mode = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
