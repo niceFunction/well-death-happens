@@ -10,7 +10,7 @@
 [ext_resource path="res://source/Flag/Flag.tscn" type="PackedScene" id=8]
 [ext_resource path="res://source/Other/InfoBoard/InfoBoard.tscn" type="PackedScene" id=9]
 [ext_resource path="res://source/Other/WallBlock/WallBlock.tscn" type="PackedScene" id=10]
-[ext_resource path="res://source/Levels/Level_5.tscn" type="PackedScene" id=11]
+[ext_resource path="res://source/Levels/Tutorial Levels 1-5/Level_5.tscn" type="PackedScene" id=11]
 [ext_resource path="res://source/Hazards/Spikes/VerticalSpike.tscn" type="PackedScene" id=12]
 [ext_resource path="res://source/Other/InfoBoard/Level 4/How_to_WallDeath.tscn" type="PackedScene" id=13]
 [ext_resource path="res://source/UI/Transition/Transition.tscn" type="PackedScene" id=14]

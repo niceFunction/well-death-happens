@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://source/Levels/LevelTemplate3.tscn" type="PackedScene" id=1]
+[ext_resource path="res://source/Levels/Level_6.tscn" type="PackedScene" id=1]
 [ext_resource path="res://source/Camera/Camera_Rig.tscn" type="PackedScene" id=2]
 [ext_resource path="res://source/Shader/CRT_Layer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://source/GameManager.tscn" type="PackedScene" id=4]
@@ -22,7 +22,6 @@ spawn_point = NodePath("SpawnPoint")
 [node name="GameManager" parent="." instance=ExtResource( 4 )]
 
 [node name="Transition" parent="." instance=ExtResource( 15 )]
-visible = false
 
 [node name="How_to_Fallpit" parent="." instance=ExtResource( 13 )]
 visible = false

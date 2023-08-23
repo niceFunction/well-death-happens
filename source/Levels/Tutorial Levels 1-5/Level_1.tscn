@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/Sprites/Level/WDH_Tiles.tres" type="TileSet" id=7]
 [ext_resource path="res://source/Levels/Level.gd" type="Script" id=8]
 [ext_resource path="res://source/Other/InfoBoard/InfoBoard.tscn" type="PackedScene" id=9]
-[ext_resource path="res://source/Levels/Level_2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://source/Levels/Tutorial Levels 1-5/Level_2.tscn" type="PackedScene" id=10]
 [ext_resource path="res://source/Levels/SpawnPoint.tscn" type="PackedScene" id=11]
 [ext_resource path="res://source/Other/InfoBoard/Level 1/How_to_Move.tscn" type="PackedScene" id=12]
 [ext_resource path="res://source/Other/InfoBoard/Level 1/How_to_Jump.tscn" type="PackedScene" id=13]
