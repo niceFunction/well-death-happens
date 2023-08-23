@@ -12,7 +12,6 @@ func _process(delta: float) -> void:
 
 func transition_into_level():
 	animation_player.play("transition_into_level")
-	print("banana")
 	
 func transition_out_of_level():
 	animation_player.play("transition_out_of_level")
