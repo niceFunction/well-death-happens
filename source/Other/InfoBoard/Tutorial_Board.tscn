@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://source/Other/InfoBoard/InfoBoard_BG_Material.tres" type="Material" id=1]
 [ext_resource path="res://assets/Sprites/Other/TestImage.png" type="Texture" id=2]
 [ext_resource path="res://assets/WDH Theme/WDH_theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/Sprites/Tutorial/Tutorial_Frame.png" type="Texture" id=4]
 
 [node name="Tutorial_Board" type="CanvasLayer"]
 
@@ -19,6 +20,7 @@ margin_right = 570.0
 margin_bottom = 308.0
 
 [node name="Replace This with a Sprite" type="TextureRect" parent="Image_Skin"]
+modulate = Color( 1, 1, 1, 0.196078 )
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 507.0
@@ -27,6 +29,13 @@ texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Image_Skin"]
 centered = false
+
+[node name="TutorialFrame" type="TextureRect" parent="Image_Skin"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 507.0
+margin_bottom = 307.0
+texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
