@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 	# In theory, when the "corpse" lives reaches 0, change to "Game Over" scene/level.
 	#elif player.corpse_lives <= 0:
 	#	get_tree().change_scene_to(game_over_scene)
+	#	et_tree().change_scene
 
 func set_corpse_total(new_corpse_amount: int) -> void:
 	player.corpse_parameters.lives = new_corpse_amount

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://source/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/Sprites/UI/LifeIcon_32_white.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://source/UI/Life/StartLife.gdshader" type="Shader" id=4]
 [ext_resource path="res://source/UI/Life/LifeLow.gdshader" type="Shader" id=5]
 [ext_resource path="res://source/Levels/GameOver.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/WDH Theme/WDH_theme.tres" type="Theme" id=7]
 
 [sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 5 )
@@ -93,7 +94,7 @@ margin_bottom = 54.0
 custom_styles/panel = SubResource( 7 )
 
 [node name="Margin_Container" type="MarginContainer" parent="CorpseUI/Life_PanelContainer"]
-margin_right = 75.0
+margin_right = 77.0
 margin_bottom = 34.0
 custom_constants/margin_right = 1
 custom_constants/margin_top = 1
@@ -103,7 +104,7 @@ custom_constants/margin_bottom = 1
 [node name="Horizontal_Box" type="HBoxContainer" parent="CorpseUI/Life_PanelContainer/Margin_Container"]
 margin_left = 1.0
 margin_top = 1.0
-margin_right = 74.0
+margin_right = 76.0
 margin_bottom = 33.0
 custom_constants/separation = 3
 
@@ -115,16 +116,16 @@ texture = ExtResource( 2 )
 
 [node name="LifeAmount_Container" type="CenterContainer" parent="CorpseUI/Life_PanelContainer/Margin_Container/Horizontal_Box"]
 margin_left = 35.0
-margin_right = 73.0
+margin_right = 75.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 38, 0 )
 size_flags_horizontal = 3
 
 [node name="LifeAmount_Label" type="Label" parent="CorpseUI/Life_PanelContainer/Margin_Container/Horizontal_Box/LifeAmount_Container"]
-margin_left = 1.0
 margin_top = 4.0
-margin_right = 37.0
-margin_bottom = 27.0
+margin_right = 40.0
+margin_bottom = 28.0
+theme = ExtResource( 7 )
 custom_fonts/font = ExtResource( 3 )
 text = "24"
 align = 1

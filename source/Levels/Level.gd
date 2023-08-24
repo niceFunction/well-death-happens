@@ -134,3 +134,19 @@ func _on_Level8_player_collided() -> void:
 func _on_Level8_animation_finished(anim_name: String) -> void:
 	if anim_name == "transition_out_of_level":
 		change_to_level(flag.next_level, player) # Changes to Level 9
+
+# LEVEL 9
+func _on_Level9_player_collided() -> void:
+	transition.transition_out_of_level()
+
+func _on_Level9_animation_finished(anim_name: String) -> void:
+	if anim_name == "transition_out_of_level":
+		change_to_level(flag.next_level, player) # Changes to Level 10
+
+# LEVEL 10
+func _on_Level10_player_collided() -> void:
+	transition.transition_out_of_level()
+
+func _on_Level10_animation_finished(anim_name: String) -> void:
+	if anim_name == "transition_out_of_level":
+		get_tree().change_scene("res://source/Levels/ThanksForPlaying.tscn")

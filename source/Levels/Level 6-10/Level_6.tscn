@@ -11,7 +11,7 @@
 [ext_resource path="res://source/Hazards/Spikes/VerticalSpike.tscn" type="PackedScene" id=9]
 [ext_resource path="res://source/Other/WallBlock/WallBlock.tscn" type="PackedScene" id=10]
 [ext_resource path="res://source/Levels/SpawnPoint.tscn" type="PackedScene" id=11]
-[ext_resource path="res://source/Levels/Level_7.tscn" type="PackedScene" id=12]
+[ext_resource path="res://source/Levels/Level 6-10/Level_7.tscn" type="PackedScene" id=12]
 [ext_resource path="res://source/UI/Transition/Transition.tscn" type="PackedScene" id=15]
 
 [node name="Level_6" type="Node2D"]
