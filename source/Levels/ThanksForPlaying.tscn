@@ -5,12 +5,12 @@
 [ext_resource path="res://assets/Sprites/Transition/Transition.png" type="Texture" id=4]
 [ext_resource path="res://source/Levels/ThanksForPlaying.gd" type="Script" id=5]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 42
 font_data = ExtResource( 2 )
 
 [sub_resource type="Theme" id=3]
-default_font = SubResource( 2 )
+default_font = SubResource( 4 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "ThanksForPlaying"
@@ -70,7 +70,6 @@ align = 1
 valign = 1
 
 [node name="Sprite" type="Sprite" parent="."]
-visible = false
 texture = ExtResource( 4 )
 centered = false
 hframes = 7

@@ -94,6 +94,9 @@ func take_damage(amount: int, should_create_corpse: bool):
 	# Makes sure that "corpse" lives stay at 0.
 	if corpse_lives < 0:
 		corpse_lives = 0
+	elif corpse_lives <= 0:
+		# If "corpse" lives are less or equals to 0, the game is over.
+		get_tree().change_scene("res://source/Levels/GameOver.tscn")
 	
 	# Player has died from some form of Spike, create a Corpse.
 	var has_spawned := state_machine.state.name == "Spawn"
