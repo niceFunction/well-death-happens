@@ -69,7 +69,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Well Death Happens"
-run/main_scene="res://source/Levels/SplashScreen.tscn"
+run/main_scene="res://source/Levels/Menus/SplashScreen.tscn"
 config/icon="res://assets/Sprites/UI/WDH_Icon.png"
 
 [autoload]

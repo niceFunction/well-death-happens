@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/Fonts/IBM_BIOS.tres" type="DynamicFont" id=3]
 [ext_resource path="res://source/UI/Life/StartLife.gdshader" type="Shader" id=4]
 [ext_resource path="res://source/UI/Life/LifeLow.gdshader" type="Shader" id=5]
-[ext_resource path="res://source/Levels/GameOver.tscn" type="PackedScene" id=6]
+[ext_resource path="res://source/Levels/Menus/GameOver.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/WDH Theme/WDH_theme.tres" type="Theme" id=7]
 
 [sub_resource type="ShaderMaterial" id=8]
