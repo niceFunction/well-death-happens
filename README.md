@@ -18,14 +18,23 @@ The Player can then use these "**Corpses**" as Platforms to get across hazardous
 - **Jump:** Space or the A-button (Xbox Controller).
 
 ### **Missing Features or Known Issues**
-- No proper Main Menu, Settings Menu or Pause menu.
-- Movement are at the moment is *kind of* snappy & can be challenging to control.
-- The game was playtested using the **Keyboard** for a majority of the time, it isn't known how *well* the game plays with a Controller.
-- Coyote time needs fine tuning.
-- Jump Delay needs fine tuning.
-- When sliding down walls & sliding across "**WallBlocks**" the Player may slowly float down ward in the middle of the air.
-- No background music.
-- No Visual Effects other than the CRT shader effect.
+- No proper _Settings Menu_ or _Pause menu_.
+- **Main-**, **Game Over-**, & **Thanks for Playing Menues** are implemented but very rudimentary.
+- Movement at the moment is *kind of* snappy & can be challenging to control.
+- The game was playtested using the **Keyboard** for a majority of the time, it isn't known how *well* the game plays with a **Controller**.
+- **Coyote time** & **Jump Delay** needs fine tuning.
+- When sliding down walls & sliding across "**WallBlocks**", the Player _may_ slowly float down ward in the middle of the air.
+- No _background music_.
+- **Jump SFX** _may_ play at points when it shouldn't play.
+- No Visual Effects other than the **CRT shader effect**.
+
+### Resources Used
+- [Godot](https://godotengine.org/) version 3.5
+- [Bfxr](https://www.bfxr.net/)
+- [Animated Godot Logo](https://www.reddit.com/r/godot/comments/kne7j7/animated_godot_logo/)
+- [The Ultimate Oldschool PC Font Pack v2.2](https://int10h.org/oldschool-pc-fonts/readme/)
+- [VHS and CRT monitor effect](https://godotshaders.com/shader/vhs-and-crt-monitor-effect/)
+- [Wiggle 2D](https://godotshaders.com/shader/wiggle-2d/)
 
 ### **Special Thanks**
 GDQuest Team & Community!
