@@ -44,6 +44,9 @@ onready var current_animation: String = "" # <-- Can be removed in the future
 # Triggering the Corpses to spawn should probably be moved to a Death state or something.
 onready var corpse_spawner := $Corpse_Spawner 
 
+onready var jumpSFX: AudioStreamPlayer2D = $Audio/JumpStream
+onready var hurtSFX: AudioStreamPlayer2D = $Audio/HurtStream
+
 func set_is_active(value: bool) -> void:
 	is_active = value
 	if not collider:
@@ -70,6 +73,7 @@ func trigger_animation() -> void:
 		# Different conditions to play different animation depending on the condition.
 		if is_jumping:
 			animation_player.play("Jumping")
+			jumpSFX.play()
 		elif is_falling:
 			animation_player.play("Falling")
 		elif is_running:
@@ -88,6 +92,7 @@ func take_damage(amount: int, should_create_corpse: bool):
 	if state_machine.state.name == "Death" or state_machine.state.name == "Spawn":
 		return
 	
+	hurtSFX.play()
 	# Take the Amount of "Corpse Lives" & reduce it by the Amount (by 1)
 	corpse_lives -= amount
 	

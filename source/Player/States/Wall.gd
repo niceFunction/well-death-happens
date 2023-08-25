@@ -44,10 +44,11 @@ func enter(message: Dictionary = {}) -> void:
 func exit() -> void:
 	get_parent().exit()
 	owner.can_wall_jump = false
+	owner.jumpSFX.play()
 
 func jump() -> void:
 	var impulse :=  Vector2(_wall_normal, -1.0) * jump_strength
-	
+		
 	owner.move_and_slide(Vector2(-_wall_normal, 0), owner.FLOOR_NORMAL)
 	var collision = owner.get_last_slide_collision()
 
@@ -56,6 +57,9 @@ func jump() -> void:
 		
 		if "can_wall_jump" in collider and collider.can_wall_jump == false:
 			return
+		
+		if "can_wall_jump" in collider and collider.can_wall_jump == true:
+			!owner.jumpSFX.play()
 	
 	var message := {
 		velocity = impulse,
