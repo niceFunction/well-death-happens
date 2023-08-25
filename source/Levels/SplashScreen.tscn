@@ -1,0 +1,104 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://source/Shader/CRT_Layer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Sprites/Splash/Splash_Sheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/Fonts/IBM_BIOS.tres" type="DynamicFont" id=3]
+[ext_resource path="res://source/Levels/SplashScreen.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Splash_Anim"
+length = 2.82
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("SplashSkin/Splash_Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.3, 0.4, 0.42, 0.47, 0.52, 0.57, 0.62, 0.67, 0.72, 0.77, 0.82 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("SplashSkin/Splash_Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 2.3, 2.82 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Theme" id=2]
+default_font = ExtResource( 3 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Developer_Anim"
+length = 2.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("CenterContainer/DeveloperLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="SplashScreen" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 640.0
+margin_bottom = 360.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="SplashSkin" type="Node2D" parent="."]
+
+[node name="Splash_Sprite" type="Sprite" parent="SplashSkin"]
+modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+centered = false
+hframes = 12
+frame = 11
+
+[node name="Splash_AnimationPlayer" type="AnimationPlayer" parent="SplashSkin"]
+root_node = NodePath("../..")
+anims/Splash_Anim = SubResource( 1 )
+
+[node name="CRT_Layer" parent="." instance=ExtResource( 1 )]
+
+[node name="DeveloperSkin" type="Node2D" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="DeveloperSkin"]
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="DeveloperLabel" type="Label" parent="DeveloperSkin/CenterContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 180.0
+margin_top = 154.0
+margin_right = 460.0
+margin_bottom = 205.0
+theme = SubResource( 2 )
+text = "Developed by
+Samuel Einheri"
+align = 1
+
+[node name="Developer_AnimationPlayer" type="AnimationPlayer" parent="DeveloperSkin"]
+anims/Developer_Anim = SubResource( 3 )
+
+[connection signal="animation_finished" from="SplashSkin/Splash_AnimationPlayer" to="." method="_on_Splash_animation_finished"]
+[connection signal="animation_finished" from="DeveloperSkin/Developer_AnimationPlayer" to="." method="_on_Developer_animation_finished"]
