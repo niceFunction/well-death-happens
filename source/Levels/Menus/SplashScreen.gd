@@ -19,4 +19,4 @@ func _on_Splash_animation_finished(anim_name: String) -> void:
 func _on_Developer_animation_finished(anim_name: String) -> void:
 	if anim_name == "Developer_Anim":
 		developer_skin.visible = true
-		get_tree().change_scene("res://source/Levels/Main.tscn") # Replace this with "Main Menu"
+		get_tree().change_scene("res://source/Levels/Menus/MainMenu.tscn") # Replace this with "Main Menu"
