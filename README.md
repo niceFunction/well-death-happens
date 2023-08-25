@@ -30,6 +30,7 @@ The Player can then use these "**Corpses**" as Platforms to get across hazardous
 
 ### Resources Used
 - [Godot](https://godotengine.org/) version 3.5
+- [Pyxel Edit](https://www.pyxeledit.com/)
 - [Bfxr](https://www.bfxr.net/)
 - [Animated Godot Logo](https://www.reddit.com/r/godot/comments/kne7j7/animated_godot_logo/)
 - [The Ultimate Oldschool PC Font Pack v2.2](https://int10h.org/oldschool-pc-fonts/readme/)
