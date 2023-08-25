@@ -9,11 +9,9 @@ onready var developer_animation_player: AnimationPlayer = $DeveloperSkin/Develop
 func _ready() -> void:
 	splash_animation_player.play("Splash_Anim")
 
-
 # After the Splash Animation is finished playing, play Developer Animation.
 func _on_Splash_animation_finished(anim_name: String) -> void:
 	if anim_name == "Splash_Anim":
-		#splash_skin.show() == false
 		splash_skin.visible = false
 		developer_animation_player.play("Developer_Anim")
 
