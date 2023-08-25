@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://source/Levels/Menus/ThanksForPlaying.gd" type="Script" id=1]
 [ext_resource path="res://source/Shader/CRT_Layer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Sprites/Transition/Transition.png" type="Texture" id=3]
 [ext_resource path="res://assets/Fonts/Ac437_IBM_BIOS.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/Fonts/WDH_MenuTheme.tres" type="DynamicFont" id=5]
+[ext_resource path="res://assets/WDH Theme/WDH_theme.tres" type="Theme" id=6]
 
 [sub_resource type="DynamicFont" id=4]
 size = 42
@@ -41,6 +43,53 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
+[sub_resource type="Animation" id=7]
+resource_name = "ThanksForPlaying_Exit"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "instructions"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Options_Container/Restart_VBoxContainer/restart_instructions:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "ENTER to", "START to" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Options_Container/Exit_VBoxContainer/exit_instructions:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "ESC to", "SELECT to" ]
+}
+
+[sub_resource type="Theme" id=6]
+default_font = ExtResource( 5 )
+
 [node name="ThanksForPlaying" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -69,11 +118,93 @@ PLAYING"
 align = 1
 valign = 1
 
+[node name="Thanks_AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ThanksForPlaying = SubResource( 1 )
+anims/ThanksForPlaying_Exit = SubResource( 7 )
+
+[node name="Label_AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/instructions = SubResource( 5 )
+
+[node name="Options_Container" type="HBoxContainer" parent="."]
+margin_top = 300.0
+margin_right = 640.0
+margin_bottom = 343.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LeftSpacer" type="MarginContainer" parent="Options_Container"]
+margin_right = 121.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+
+[node name="Restart_VBoxContainer" type="VBoxContainer" parent="Options_Container"]
+margin_left = 125.0
+margin_right = 265.0
+margin_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="restart_instructions" type="Label" parent="Options_Container/Restart_VBoxContainer"]
+margin_right = 140.0
+margin_bottom = 15.0
+theme = SubResource( 6 )
+text = "ENTER to"
+align = 1
+valign = 3
+
+[node name="play_label" type="Label" parent="Options_Container/Restart_VBoxContainer"]
+margin_top = 19.0
+margin_right = 140.0
+margin_bottom = 43.0
+theme = ExtResource( 6 )
+text = "Restart"
+align = 1
+valign = 3
+
+[node name="MiddleSpacer" type="MarginContainer" parent="Options_Container"]
+margin_left = 269.0
+margin_right = 390.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+
+[node name="Exit_VBoxContainer" type="VBoxContainer" parent="Options_Container"]
+margin_left = 394.0
+margin_right = 515.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="exit_instructions" type="Label" parent="Options_Container/Exit_VBoxContainer"]
+margin_right = 121.0
+margin_bottom = 15.0
+theme = SubResource( 6 )
+text = "ESC to"
+align = 1
+valign = 3
+
+[node name="exit_label" type="Label" parent="Options_Container/Exit_VBoxContainer"]
+margin_top = 19.0
+margin_right = 121.0
+margin_bottom = 43.0
+theme = ExtResource( 6 )
+text = "Exit"
+align = 1
+
+[node name="RightSpacer" type="MarginContainer" parent="Options_Container"]
+margin_left = 519.0
+margin_right = 640.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 centered = false
 hframes = 7
 frame = 6
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/ThanksForPlaying = SubResource( 1 )
+[connection signal="animation_finished" from="Thanks_AnimationPlayer" to="." method="_on_Thanks_animation_finished"]

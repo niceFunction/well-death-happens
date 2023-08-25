@@ -149,4 +149,4 @@ func _on_Level10_player_collided() -> void:
 
 func _on_Level10_animation_finished(anim_name: String) -> void:
 	if anim_name == "transition_out_of_level":
-		get_tree().change_scene("res://source/Levels/ThanksForPlaying.tscn")
+		get_tree().change_scene("res://source/Levels/Menus/ThanksForPlaying.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://source/Shader/CRT_Layer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Logo/WDH_Logo.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://assets/Sprites/Transition/Transition.png" type="Texture" id=4]
 [ext_resource path="res://assets/Fonts/WDH_MenuTheme.tres" type="DynamicFont" id=5]
 [ext_resource path="res://assets/WDH Theme/WDH_theme.tres" type="Theme" id=6]
+
+[sub_resource type="Theme" id=3]
+default_font = ExtResource( 5 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "MainMenu_Anim"
@@ -62,8 +65,34 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Theme" id=3]
-default_font = ExtResource( 5 )
+[sub_resource type="Animation" id=4]
+resource_name = "instructions"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Options_Container/Play_VBoxContainer/play_instructions:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "ENTER to", "START to" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Options_Container/Exit_VBoxContainer/exit_instructions:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "ESC to", "SELECT to" ]
+}
 
 [node name="MainMenu" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -77,7 +106,6 @@ margin_bottom = 360.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="CRT_Layer" parent="." instance=ExtResource( 1 )]
-visible = false
 
 [node name="Logo_CenterContainer" type="CenterContainer" parent="."]
 anchor_right = 1.0
@@ -89,8 +117,83 @@ margin_right = 640.0
 margin_bottom = 200.0
 texture = ExtResource( 2 )
 
+[node name="Options_Container" type="HBoxContainer" parent="."]
+margin_top = 300.0
+margin_right = 640.0
+margin_bottom = 343.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LeftSpacer" type="MarginContainer" parent="Options_Container"]
+margin_right = 124.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+
+[node name="Play_VBoxContainer" type="VBoxContainer" parent="Options_Container"]
+margin_left = 128.0
+margin_right = 253.0
+margin_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="play_instructions" type="Label" parent="Options_Container/Play_VBoxContainer"]
+margin_right = 125.0
+margin_bottom = 15.0
+theme = SubResource( 3 )
+text = "ENTER to"
+align = 1
+valign = 3
+
+[node name="play_label" type="Label" parent="Options_Container/Play_VBoxContainer"]
+margin_top = 19.0
+margin_right = 125.0
+margin_bottom = 43.0
+theme = ExtResource( 6 )
+text = "Play"
+align = 1
+valign = 3
+
+[node name="MiddleSpacer" type="MarginContainer" parent="Options_Container"]
+margin_left = 257.0
+margin_right = 382.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+
+[node name="Exit_VBoxContainer" type="VBoxContainer" parent="Options_Container"]
+margin_left = 386.0
+margin_right = 511.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="exit_instructions" type="Label" parent="Options_Container/Exit_VBoxContainer"]
+margin_right = 125.0
+margin_bottom = 15.0
+theme = SubResource( 3 )
+text = "ESC to"
+align = 1
+valign = 3
+
+[node name="exit_label" type="Label" parent="Options_Container/Exit_VBoxContainer"]
+margin_top = 19.0
+margin_right = 125.0
+margin_bottom = 43.0
+theme = ExtResource( 6 )
+text = "Exit"
+align = 1
+
+[node name="RightSpacer" type="MarginContainer" parent="Options_Container"]
+margin_left = 515.0
+margin_right = 640.0
+margin_bottom = 43.0
+size_flags_horizontal = 3
+
 [node name="MainMenu_Anim_Skin" type="Node2D" parent="."]
-visible = false
 
 [node name="Sprite" type="Sprite" parent="MainMenu_Anim_Skin"]
 texture = ExtResource( 4 )
@@ -103,59 +206,7 @@ root_node = NodePath("../..")
 anims/MainMenu_Anim = SubResource( 1 )
 anims/MainMenu_ExitAnim = SubResource( 2 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_top = 300.0
-margin_right = 640.0
-margin_bottom = 343.0
-grow_horizontal = 0
-grow_vertical = 2
-alignment = 1
-
-[node name="Play_VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 162.0
-margin_right = 330.0
-margin_bottom = 43.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="play_instructions" type="Label" parent="HBoxContainer/Play_VBoxContainer"]
-margin_right = 168.0
-margin_bottom = 15.0
-theme = SubResource( 3 )
-text = "Press ENTER to"
-align = 1
-valign = 3
-
-[node name="play_label" type="Label" parent="HBoxContainer/Play_VBoxContainer"]
-margin_top = 19.0
-margin_right = 168.0
-margin_bottom = 43.0
-theme = ExtResource( 6 )
-text = "Play"
-align = 1
-valign = 3
-
-[node name="Exit_VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 334.0
-margin_right = 478.0
-margin_bottom = 43.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="exit_instructions" type="Label" parent="HBoxContainer/Exit_VBoxContainer"]
-margin_right = 144.0
-margin_bottom = 15.0
-theme = SubResource( 3 )
-text = "Press ESC to"
-align = 1
-valign = 3
-
-[node name="exit_label" type="Label" parent="HBoxContainer/Exit_VBoxContainer"]
-margin_top = 19.0
-margin_right = 144.0
-margin_bottom = 43.0
-theme = ExtResource( 6 )
-text = "Exit"
-align = 1
+[node name="Label_AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/instructions = SubResource( 4 )
 
 [connection signal="animation_finished" from="MainMenu_Anim_Skin/MainMenu_AnimationPlayer" to="." method="_on_MainMenu_animation_finished"]
