@@ -32,6 +32,7 @@ The Player can then use these "**Corpses**" as Platforms to get across hazardous
 - [Godot](https://godotengine.org/) version 3.5
 - [Pyxel Edit](https://www.pyxeledit.com/)
 - [Bfxr](https://www.bfxr.net/)
+- [Chiptone](https://sfbgames.itch.io/chiptone)
 - [Animated Godot Logo](https://www.reddit.com/r/godot/comments/kne7j7/animated_godot_logo/)
 - [The Ultimate Oldschool PC Font Pack v2.2](https://int10h.org/oldschool-pc-fonts/readme/)
 - [VHS and CRT monitor effect](https://godotshaders.com/shader/vhs-and-crt-monitor-effect/)
