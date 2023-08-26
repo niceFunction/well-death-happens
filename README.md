@@ -20,6 +20,7 @@ The Player can then use these "**Corpses**" as Platforms to get across hazardous
 ### **Missing Features or Known Issues**
 - No proper _Settings Menu_ or _Pause menu_.
 - **Main-**, **Game Over-**, & **Thanks for Playing Menues** are implemented but very rudimentary.
+- Except for the **Main-**, **Game Over-**, & **Thanks for Playing Menues**, while playing, you can't exit the game, you have to use **ALT+F4** to forcefully exit the game while playing.
 - Movement at the moment is *kind of* snappy & can be challenging to control.
 - The game was playtested using the **Keyboard** for a majority of the time, it isn't known how *well* the game plays with a **Controller**.
 - **Coyote time** & **Jump Delay** needs fine tuning.
