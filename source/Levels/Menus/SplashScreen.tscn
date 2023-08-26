@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://source/Shader/CRT_Layer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Sprites/Splash/Splash_Sheet.png" type="Texture" id=2]
 [ext_resource path="res://assets/Fonts/IBM_BIOS.tres" type="DynamicFont" id=3]
 [ext_resource path="res://source/Levels/Menus/SplashScreen.gd" type="Script" id=4]
+[ext_resource path="res://assets/Sound/splash.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Splash_Anim"
@@ -32,6 +33,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SplashStream:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.52, 0.72 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
 }
 
 [sub_resource type="Theme" id=2]
@@ -99,6 +112,9 @@ align = 1
 
 [node name="Developer_AnimationPlayer" type="AnimationPlayer" parent="DeveloperSkin"]
 anims/Developer_Anim = SubResource( 3 )
+
+[node name="SplashStream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
 
 [connection signal="animation_finished" from="SplashSkin/Splash_AnimationPlayer" to="." method="_on_Splash_animation_finished"]
 [connection signal="animation_finished" from="DeveloperSkin/Developer_AnimationPlayer" to="." method="_on_Developer_animation_finished"]

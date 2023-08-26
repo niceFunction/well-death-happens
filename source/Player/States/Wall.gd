@@ -39,16 +39,18 @@ func enter(message: Dictionary = {}) -> void:
 	
 	_wall_normal = message.normal
 	# Prevent the Character from being able to slide upwards too much.
+	if owner.can_wall_jump == true:
+		SoundPlayer.play_sound(SoundPlayer.jump)
 	_velocity.y = max(message.velocity.y, -max_slide_speed)
 	
 func exit() -> void:
 	get_parent().exit()
 	owner.can_wall_jump = false
-	owner.jumpSFX.play()
+	if owner.can_wall_jump == false:
+		!SoundPlayer.play_sound(SoundPlayer.jump)
 
 func jump() -> void:
-	var impulse :=  Vector2(_wall_normal, -1.0) * jump_strength
-		
+	var impulse :=  Vector2(_wall_normal, -1.0) * jump_strength	
 	owner.move_and_slide(Vector2(-_wall_normal, 0), owner.FLOOR_NORMAL)
 	var collision = owner.get_last_slide_collision()
 
@@ -59,7 +61,7 @@ func jump() -> void:
 			return
 		
 		if "can_wall_jump" in collider and collider.can_wall_jump == true:
-			!owner.jumpSFX.play()
+			SoundPlayer.play_sound(SoundPlayer.jump)
 	
 	var message := {
 		velocity = impulse,

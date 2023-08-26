@@ -75,6 +75,7 @@ config/icon="res://assets/Sprites/UI/WDH_Icon.png"
 [autoload]
 
 Events="*res://source/AutoLoad/Events.gd"
+SoundPlayer="*res://source/Sound/SoundPlayer.tscn"
 
 [display]
 
