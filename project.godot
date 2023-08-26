@@ -70,7 +70,8 @@ _global_script_class_icons={
 
 config/name="Well Death Happens"
 run/main_scene="res://source/Levels/Menus/SplashScreen.tscn"
-config/icon="res://assets/Sprites/UI/WDH_Icon.png"
+config/icon="res://assets/Sprites/UI/WDH_Icon64.png"
+config/windows_native_icon="res://assets/WDH_Icon.ico"
 
 [autoload]
 
